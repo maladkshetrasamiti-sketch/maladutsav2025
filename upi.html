@@ -1,20 +1,80 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Redirecting to UPI...</title>
-    <script>
-      const params = new URLSearchParams(window.location.search);
-      const email = params.get('email') || 'Registration Payment';
-      const upiUrl = `upi://pay?pa=rassawa-3@okhdfcbank&pn=Mahesh%20Utsav%202025&cu=INR&tn=${encodeURIComponent(email)}`;
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mahesh Utsav 2025 - Payment</title>
+  <style>
+    /* Full-page background */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: url('MaladUtsal2025.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+    }
+
+    /* Semi-transparent overlay */
+    .overlay {
+      background-color: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 15px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    a#upiLink {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 30px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    a#upiLink:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    // Extract email from URL
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email') || 'Registration Payment';
+    const upiUrl = `upi://pay?pa=rassawa-3@okhdfcbank&pn=Mahesh%20Utsav%202025&cu=INR&tn=${encodeURIComponent(email)}`;
+
+    // Auto-redirect after 2 seconds
+    setTimeout(() => {
       window.location.href = upiUrl;
-    </script>
-  </head>
-  <body>
-    <p>Redirecting to your UPI app...</p>
-    <p>If not redirected automatically, <a id="upiLink" href="#">click here to pay</a>.</p>
-    <script>
-      document.getElementById("upiLink").href = upiUrl;
-    </script>
-  </body>
+    }, 2000);
+  </script>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Mahesh Utsav 2025</h1>
+    <p>Redirecting to your UPI app for payment...</p>
+    <p>If not redirected automatically,</p>
+    <a id="upiLink" href="#">Click here to pay</a>
+  </div>
+
+  <script>
+    document.getElementById("upiLink").href = upiUrl;
+  </script>
+</body>
 </html>
