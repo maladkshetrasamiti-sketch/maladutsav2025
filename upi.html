@@ -107,10 +107,10 @@
 <body>
 
 <div class="message">
-  <p>Redirecting to your UPI app for payment...</p>
-  <p>If not redirected automatically,</p>
+  Redirecting to your UPI app for payment. If not redirected automatically,
   <div class="timer" id="countdown">10</div>
   <a id="upiLink" class="upi-button" href="#">Click here to pay</a>
+  <p>कृपया याद रखें कि अपना नाम दर्ज करें और UPI आईडी को गूगल फॉर्म में वापस अपडेट करें।</p>
 </div>
 
 <div class="image-container">
@@ -122,8 +122,7 @@
 <script>
   // Extract email from URL
   const params = new URLSearchParams(window.location.search);
-  const email = params.get('email') || 'YOUR NAME PLEASE';
-  const upiUrl = `upi://pay?pa=rassawa-3@okhdfcbank&cu=INR&tn=${encodeURIComponent(email)}`;
+  const upiUrl = `upi://pay?pa=rassawa-3@okhdfcbank&cu=INR`;
 
   document.getElementById("upiLink").href = upiUrl;
 
