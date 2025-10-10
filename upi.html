@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Mahesh Utsav 2025 - Payment</title>
   <style>
-    /* Full-page background */
     body {
       margin: 0;
       padding: 0;
@@ -12,32 +11,24 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: url('MaladUtsal2025.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
+      justify-content: flex-start; /* top-aligned */
+      min-height: 100vh;
+      background-color: #f0f0f0;
+      color: #333;
       text-align: center;
     }
 
-    /* Semi-transparent overlay */
-    .overlay {
-      background-color: rgba(0,0,0,0.6);
-      padding: 30px;
-      border-radius: 15px;
+    .message {
+      margin-top: 50px;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1.2rem;
+    .message p {
+      font-size: 1.5rem;
       margin: 10px 0;
+      font-weight: bold;
     }
 
-    a#upiLink {
+    .upi-button {
       display: inline-block;
       margin-top: 20px;
       padding: 15px 30px;
@@ -49,28 +40,45 @@
       transition: 0.3s;
     }
 
-    a#upiLink:hover {
+    .upi-button:hover {
       background-color: #45a049;
+    }
+
+    .image-container {
+      margin-top: 50px;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    .image-container img {
+      width: 100%;
+      display: block;
     }
   </style>
   <script>
-    // Extract email from URL
+    // Extract email from URL if passed
     const params = new URLSearchParams(window.location.search);
     const email = 'YOUR NAME PLEASE';
-    const upiUrl = `upi://pay?pa=rassawa-3@okhdfcbank&pn=Mahesh%20Utsav%202025&cu=INR&tn=${encodeURIComponent(email)}`;
+    const upiUrl = `upi://pay?pa=rassawa-3@okhdfcbank&cu=INR&tn=INPUT%20YOUR%20NAME`;
 
-    // Auto-redirect after 2 seconds
+    // Auto-redirect after 10 seconds
     setTimeout(() => {
       window.location.href = upiUrl;
     }, 10000);
   </script>
 </head>
 <body>
-  <div class="overlay">
-    <h1>Mahesh Utsav 2025</h1>
+  <div class="message">
     <p>Redirecting to your UPI app for payment...</p>
     <p>If not redirected automatically,</p>
-    <a id="upiLink" href="#">Click here to pay</a>
+    <a id="upiLink" class="upi-button" href="#">Click here to pay</a>
+  </div>
+
+  <div class="image-container">
+    <img src="MaladUtsal2025.jpg" alt="Mahesh Utsav 2025">
   </div>
 
   <script>
