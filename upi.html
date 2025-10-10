@@ -22,12 +22,19 @@
     .message {
       margin-top: 40px;
       padding: 0 20px;
-      z-index: 10; /* ensure it is above overlay */
+      z-index: 10;
     }
 
     .message p {
       font-size: 1.5rem;
       margin: 10px 0;
+      font-weight: bold;
+    }
+
+    .timer {
+      font-size: 1.5rem;
+      margin: 10px 0;
+      color: #ff9800;
       font-weight: bold;
     }
 
@@ -65,7 +72,6 @@
       display: block;
     }
 
-    /* Overlay on image only */
     .image-overlay {
       position: absolute;
       top: 0;
@@ -92,12 +98,13 @@
       .message p {
         font-size: 1.2rem;
       }
-
+      .timer {
+        font-size: 1.2rem;
+      }
       .upi-button {
         padding: 12px 24px;
         font-size: 1rem;
       }
-
       .image-text {
         font-size: 1.5rem;
       }
@@ -108,6 +115,7 @@
   <div class="message">
     <p>Redirecting to your UPI app for payment...</p>
     <p>If not redirected automatically,</p>
+    <div class="timer" id="countdown">10</div>
     <a id="upiLink" class="upi-button" href="#">Click here to pay</a>
   </div>
 
@@ -120,15 +128,22 @@
   <script>
     // Extract parameters from URL
     const params = new URLSearchParams(window.location.search);
-    const upiUrl = `upi://pay?pa=rassawa-3@okhdfcbank&cu=INR`;
+    const email = params.get('email') || 'YOUR NAME PLEASE';
 
-    // Auto-redirect after 10 seconds
-    setTimeout(() => {
-      window.location.href = upiUrl;
-    }, 10000);
-
-    // Update clickable UPI link
+    const upiUrl = `upi://pay?pa=rassawa-3@okhdfcbank&cu=INR&tn=${encodeURIComponent(email)}`;
     document.getElementById("upiLink").href = upiUrl;
+
+    // Countdown timer
+    let countdown = 10;
+    const countdownElement = document.getElementById('countdown');
+    const timer = setInterval(() => {
+      countdown--;
+      countdownElement.textContent = countdown;
+      if (countdown <= 0) {
+        clearInterval(timer);
+        window.location.href = upiUrl; // Redirect when timer reaches 0
+      }
+    }, 1000);
   </script>
 </body>
 </html>
