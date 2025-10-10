@@ -1,149 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Mahesh Utsav 2025 - Payment</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      background-color: #f0f0f0;
-      color: #333;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<title>Mahesh Utsav 2025 - Payment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+  }
 
-    .message {
-      margin-top: 40px;
-      padding: 0 20px;
-      z-index: 10;
-    }
+  .message {
+    margin-top: 40px;
+    padding: 0 20px;
+    z-index: 1000;
+    position: relative;
+    background: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    padding: 20px;
+  }
 
-    .message p {
-      font-size: 1.5rem;
-      margin: 10px 0;
-      font-weight: bold;
-    }
+  .message p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    font-weight: bold;
+  }
 
-    .timer {
-      font-size: 1.5rem;
-      margin: 10px 0;
-      color: #ff9800;
-      font-weight: bold;
-    }
+  .timer {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: #ff9800;
+    font-weight: bold;
+  }
 
-    .upi-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 15px 30px;
-      background-color: #4CAF50;
-      color: white;
-      text-decoration: none;
-      font-size: 1.2rem;
-      border-radius: 10px;
-      transition: 0.3s;
-      z-index: 10;
-      position: relative;
-    }
+  .upi-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
 
-    .upi-button:hover {
-      background-color: #45a049;
-    }
+  .upi-button:hover {
+    background-color: #45a049;
+  }
 
-    .image-container {
-      margin-top: 30px;
-      width: 90%;
-      max-width: 600px;
-      border-radius: 15px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    }
+  .image-container {
+    margin-top: 30px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  }
 
-    .image-container img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+  .image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
-    .image-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1));
-      pointer-events: none;
-    }
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+    pointer-events: none;
+  }
 
-    .image-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fff;
-      font-size: 2rem;
-      font-weight: bold;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-      pointer-events: none;
-    }
+  .image-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    pointer-events: none;
+  }
 
-    @media (max-width: 480px) {
-      .message p {
-        font-size: 1.2rem;
-      }
-      .timer {
-        font-size: 1.2rem;
-      }
-      .upi-button {
-        padding: 12px 24px;
-        font-size: 1rem;
-      }
-      .image-text {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+  @media (max-width: 480px) {
+    .message p { font-size: 1.2rem; }
+    .timer { font-size: 1.5rem; }
+    .upi-button { padding: 12px 24px; font-size: 1rem; }
+    .image-text { font-size: 1.5rem; }
+  }
+</style>
 </head>
 <body>
-  <div class="message">
-    <p>Redirecting to your UPI app for payment...</p>
-    <p>If not redirected automatically,</p>
-    <div class="timer" id="countdown">10</div>
-    <a id="upiLink" class="upi-button" href="#">Click here to pay</a>
-  </div>
 
-  <div class="image-container">
-    <img src="MaladUtsal2025.jpg" alt="Mahesh Utsav 2025">
-    <div class="image-overlay"></div>
-    <div class="image-text">Mahesh Utsav 2025</div>
-  </div>
+<div class="message">
+  <p>Redirecting to your UPI app for payment...</p>
+  <p>If not redirected automatically,</p>
+  <div class="timer" id="countdown">10</div>
+  <a id="upiLink" class="upi-button" href="#">Click here to pay</a>
+</div>
 
-  <script>
-    // Extract parameters from URL
-    const params = new URLSearchParams(window.location.search);
-    const email = params.get('email') || 'YOUR NAME PLEASE';
+<div class="image-container">
+  <img src="MaladUtsal2025.jpg" alt="Mahesh Utsav 2025">
+  <div class="image-overlay"></div>
+  <div class="image-text">Mahesh Utsav 2025</div>
+</div>
 
-    const upiUrl = `upi://pay?pa=rassawa-3@okhdfcbank&cu=INR&tn=${encodeURIComponent(email)}`;
-    document.getElementById("upiLink").href = upiUrl;
+<script>
+  // Extract email from URL
+  const params = new URLSearchParams(window.location.search);
+  const email = params.get('email') || 'YOUR NAME PLEASE';
+  const upiUrl = `upi://pay?pa=rassawa-3@okhdfcbank&cu=INR&tn=${encodeURIComponent(email)}`;
 
-    // Countdown timer
-    let countdown = 10;
-    const countdownElement = document.getElementById('countdown');
-    const timer = setInterval(() => {
-      countdown--;
-      countdownElement.textContent = countdown;
-      if (countdown <= 0) {
-        clearInterval(timer);
-        window.location.href = upiUrl; // Redirect when timer reaches 0
-      }
-    }, 1000);
-  </script>
+  document.getElementById("upiLink").href = upiUrl;
+
+  // Countdown timer
+  let countdown = 10;
+  const countdownElement = document.getElementById('countdown');
+  const timer = setInterval(() => {
+    countdown--;
+    countdownElement.textContent = countdown;
+    if (countdown <= 0) {
+      clearInterval(timer);
+      window.location.href = upiUrl;
+    }
+  }, 1000);
+</script>
+
 </body>
 </html>
