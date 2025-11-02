@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent and Student List</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #searchInput {
+            width: 80%;
+            max-width: 400px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #3498db;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+        #searchInput:focus {
+            border-color: #2980b9;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+        }
+        .sequence-number {
+            color: #7f8c8d;
+            font-weight: bold;
+            width: 50px;
+        }
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-style: italic;
+            display: none;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: white;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+            transition: background-color 0.3s ease;
+        }
+        @media (max-width: 600px) {
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            .container {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Parent and Student List</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for names..." onkeyup="searchTable()">
+        </div>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th class="sequence-number">#</th>
+                    <th>Parent Name</th>
+                    <th>Student Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="sequence-number">1</td><td>Alekh Gandhi</td><td>Aaroh Gandhi</td></tr>
+                <tr><td class="sequence-number">2</td><td>Alekh Gandhi</td><td>Hitika Gandhi</td></tr>
+                <tr><td class="sequence-number">3</td><td>Anuj Bhala</td><td>Aveesha Bhala</td></tr>
+                <tr><td class="sequence-number">4</td><td>Ashish Bhala</td><td>Aayushman Bhala</td></tr>
+                <tr><td class="sequence-number">5</td><td>Ashish Kumar Sodani</td><td>Chahal Ashish Sodani</td></tr>
+                <tr><td class="sequence-number">6</td><td>Ashish Poonam Bhaiyya</td><td>Dehuti Bhaiyya</td></tr>
+                <tr><td class="sequence-number">7</td><td>Harish Bhootra</td><td>Maanvik Bhootra</td></tr>
+                <tr><td class="sequence-number">8</td><td>Harish Bhootra</td><td>Nirav Bhootra</td></tr>
+                <tr><td class="sequence-number">9</td><td>Jaishree Sawna</td><td>Darsh Sawna</td></tr>
+                <tr><td class="sequence-number">10</td><td>Kushal Dhoot</td><td>Dhruvi Dhoot</td></tr>
+                <tr><td class="sequence-number">11</td><td>Kushal Dhoot</td><td>Nivaan Dhoot</td></tr>
+                <tr><td class="sequence-number">12</td><td>Madhusudan N Sarda</td><td>Tanisi Madhusudan Sarda</td></tr>
+                <tr><td class="sequence-number">13</td><td>Manish Asawa</td><td>Aahana Asawa</td></tr>
+                <tr><td class="sequence-number">14</td><td>Manish Kasat</td><td>Pankhuri Kasat</td></tr>
+                <tr><td class="sequence-number">15</td><td>Manish Kasat</td><td>Shaurya Kasat</td></tr>
+                <tr><td class="sequence-number">16</td><td>Manmohan chandak</td><td>Vaani Chandak</td></tr>
+                <tr><td class="sequence-number">17</td><td>NANDKISHOR BAHETI</td><td>SHREEDA BAHETI</td></tr>
+                <tr><td class="sequence-number">18</td><td>NANDKISHOR BAHETI</td><td>Vivaan Baheti</td></tr>
+                <tr><td class="sequence-number">19</td><td>Nilesh Malani</td><td>Yash Malani</td></tr>
+                <tr><td class="sequence-number">20</td><td>NILESH TAWARI</td><td>KAVYA NILESH TAWARI</td></tr>
+                <tr><td class="sequence-number">21</td><td>NILESH TAWARI</td><td>NAITIK NILESH TAWARI</td></tr>
+                <tr><td class="sequence-number">22</td><td>PARAG BOOB</td><td>PARTH PARAG BOOB</td></tr>
+                <tr><td class="sequence-number">23</td><td>Pradeep Biyani</td><td>Mishika Biyani</td></tr>
+                <tr><td class="sequence-number">24</td><td>PREM TAPARIA</td><td>KAVYA TAPARIA</td></tr>
+                <tr><td class="sequence-number">25</td><td>Priyanka singhi</td><td>Prachita singhi</td></tr>
+                <tr><td class="sequence-number">26</td><td>RAHUL & SUCHIKA ASSAWA</td><td>AKSHITA ASSAWA</td></tr>
+                <tr><td class="sequence-number">27</td><td>RAHUL & SUCHIKA ASSAWA</td><td>ARJUN ASSAWA</td></tr>
+                <tr><td class="sequence-number">28</td><td>Ramesh and Jyoti Mundra</td><td>Chaitanya Mundra</td></tr>
+                <tr><td class="sequence-number">29</td><td>Ramesh Mundhra</td><td>Vrinda Mundhra</td></tr>
+                <tr><td class="sequence-number">30</td><td>Ramesh Mundhra</td><td>Yaksh Mundhra</td></tr>
+                <tr><td class="sequence-number">31</td><td>RATHI</td><td>KRIYANSH RATHI</td></tr>
+                <tr><td class="sequence-number">32</td><td>Ratish Moondra</td><td>Rachit Moondra</td></tr>
+                <tr><td class="sequence-number">33</td><td>Sachin Dhoot</td><td>Khush Dhoot</td></tr>
+                <tr><td class="sequence-number">34</td><td>Sachin Dhoot</td><td>Sumaira Dhoot</td></tr>
+                <tr><td class="sequence-number">35</td><td>Sachin Malpani</td><td>Yuvansh Malpani</td></tr>
+                <tr><td class="sequence-number">36</td><td>Sanwariya Somani</td><td>Rakshit Somani</td></tr>
+                <tr><td class="sequence-number">37</td><td>Surendra Kabra</td><td>Dhruv Kabra</td></tr>
+                <tr><td class="sequence-number">38</td><td>Urmila Ankit Rathi</td><td>Keshav Rathi</td></tr>
+                <tr><td class="sequence-number">39</td><td>VENKATESH BALKISHAN SARDA</td><td>DARSHAN VENKATESH SARDA</td></tr>
+                <tr><td class="sequence-number">40</td><td>Vishnu Satyanarayan Toshniwal</td><td>Vedika Vishnu Toshniwal</td></tr>
+                <tr><td class="sequence-number">41</td><td>Vivek Kabra</td><td>Krisha Kabra</td></tr>
+            </tbody>
+        </table>
+        <div id="noResults" class="no-results">No matching results found</div>
+        <div class="footer">
+            Generated on November 2, 2025
+        </div>
+    </div>
+    <script>
+        function searchTable() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('dataTable');
+            const rows = table.getElementsByTagName('tr');
+            const noResults = document.getElementById('noResults');
+            let foundResults = false;
+
+            // Loop through all table rows, starting from index 1 to skip the header
+            for (let i = 1; i < rows.length; i++) {
+                const parentName = rows[i].getElementsByTagName('td')[1];
+                const studentName = rows[i].getElementsByTagName('td')[2];
+                
+                if (parentName && studentName) {
+                    const parentText = parentName.textContent || parentName.innerText;
+                    const studentText = studentName.textContent || studentName.innerText;
+                    
+                    if (parentText.toLowerCase().indexOf(filter) > -1 || 
+                        studentText.toLowerCase().indexOf(filter) > -1) {
+                        rows[i].style.display = '';
+                        foundResults = true;
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+
+            // Show/hide the "No results" message
+            noResults.style.display = foundResults ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
