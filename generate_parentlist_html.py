@@ -151,8 +151,7 @@ def build_main_html(df: pd.DataFrame, includes_dir: str, output_html: str):
             <div style="text-align:center; margin-bottom:12px">
                 <input id="searchInput" type="text" placeholder="Search parent, student or timestamp..." onkeyup="searchTable()" />
             </div>
-        </div>
-        <div data-include="{os.path.join('includes','header.html')}"></div>
+    </div>
     <table id="dataTable">
       <thead>
         <tr><th class="sequence-number">#</th><th>Parent Name</th><th>Student Name</th><th>Submitted On</th></tr>
