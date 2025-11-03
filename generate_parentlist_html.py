@@ -40,6 +40,7 @@ def fetch_sheet_csv(sheet_id: str, gid: str, timeout: int = 15) -> pd.DataFrame:
     resp.raise_for_status()
     text = resp.content.decode("utf-8", errors="replace")
     df = pd.read_csv(io.StringIO(text))
+    print(len(df))
     return df
 
 
