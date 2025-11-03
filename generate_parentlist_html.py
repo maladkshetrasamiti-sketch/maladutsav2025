@@ -90,17 +90,18 @@ def esc(s: object) -> str:
     return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
 
 
-def write_includes(includes_dir: str):
+def write_includes(includes_dir: str, updated_str: str):
     os.makedirs(includes_dir, exist_ok=True)
     header = (
-        '<div class="page-header">\n'
-        '  <h1>Parent and Student List</h1>\n'
-        '  <div style="text-align:center; margin-bottom:12px">\n'
-        '    <input id="searchInput" type="text" placeholder="Search parent, student or timestamp..." onkeyup="searchTable()" />\n'
-        '  </div>\n'
-        '</div>\n'
+        f'<div class="page-header">\n'
+        f'  <h1>Parent and Student List</h1>\n'
+        f'  <div class="updated">Updated: {updated_str}</div>\n'
+        f'  <div style="text-align:center; margin-bottom:12px">\n'
+        f'    <input id="searchInput" type="text" placeholder="Search parent, student or timestamp..." onkeyup="searchTable()" />\n'
+        f'  </div>\n'
+        f'</div>\n'
     )
-    footer = f'<div class="footer">Generated on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}</div>\n'
+    footer = f'<div class="footer">Generated on {updated_str}</div>\n'
     with open(os.path.join(includes_dir, 'header.html'), 'w', encoding='utf-8') as f:
         f.write(header)
     with open(os.path.join(includes_dir, 'footer.html'), 'w', encoding='utf-8') as f:
@@ -108,7 +109,7 @@ def write_includes(includes_dir: str):
     print(f"Wrote include fragments to: {includes_dir}")
 
 
-def build_main_html(df: pd.DataFrame, includes_dir: str, output_html: str):
+def build_main_html(df: pd.DataFrame, includes_dir: str, output_html: str, updated_str: str):
     rows = []
     for _, r in df.iterrows():
         rows.append(
@@ -131,6 +132,7 @@ def build_main_html(df: pd.DataFrame, includes_dir: str, output_html: str):
         " tr:nth-child(even){ background:#fafafa }"
         " .sequence-number{ color:#7f8c8d; width:50px }"
         " .footer{ text-align:center; color:#7f8c8d; margin-top:14px }"
+        " .updated{ text-align:center; color:#7f8c8d; margin:6px 0 12px; font-size:0.95rem }"
         " .no-results{ text-align:center; color:#7f8c8d; padding:12px; display:none }"
         " @media (max-width:600px){ table{ display:block; overflow-x:auto } }"
     )
@@ -148,6 +150,7 @@ def build_main_html(df: pd.DataFrame, includes_dir: str, output_html: str):
         <!-- Search header (included here so it works even when client-side includes fail for file:///) -->
         <div class="page-header">
             <h1>Parent and Student List</h1>
+            <div class="updated"><b>Updated: {updated_str}</b></div>
             <div style="text-align:center; margin-bottom:12px">
                 <input id="searchInput" type="text" placeholder="Search parent, student or timestamp..." onkeyup="searchTable()" />
             </div>
@@ -257,8 +260,9 @@ def main():
     df = normalize_and_sort(df)
 
     includes_dir = os.path.join(os.path.dirname(args.output) or '.', 'includes')
-    write_includes(includes_dir)
-    build_main_html(df, includes_dir, args.output)
+    updated_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    write_includes(includes_dir, updated_str)
+    build_main_html(df, includes_dir, args.output, updated_str)
 
     print(f"Done — generated {args.output} with {len(df)} rows.")
     if args.serve:
