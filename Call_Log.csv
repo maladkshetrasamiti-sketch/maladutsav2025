@@ -1,4 +1,4 @@
-Timestamp,Email address,Call Status ?,Volunteer Name,Person Contacted,Phone Number,Remarks
+Timestamp,Email address,Status,Volunteer Name,Person Contacted,Phone Number,Remarks
 31/10/2025 11:45:03,ratishmoondra@gmail.com,Not Reachable,Shri Ratishji Mundhra,Alekh Jaggannath Gandhi,9769422928,Not on whatsapp
 31/10/2025 11:49:22,ratishmoondra2025@gmail.com,Phone Busy,Rahul Omshankar Assawa,Ashok Harnarain Chandak,9819920011,
 31/10/2025 11:53:47,ratishmoondra@gmail.com,Not Reachable,Shri Ratishji Mundhra,Sureshkumar Girdharilal Sarda,9322874559,
@@ -218,3 +218,51 @@ Timestamp,Email address,Call Status ?,Volunteer Name,Person Contacted,Phone Numb
 03/11/2025 00:17:58,,Not Reachable,Shashi Jhawar,Ekta Sanjay Mundra,9920598986,
 03/11/2025 00:18:52,,Not Coming,Shashi Jhawar,Hemlata Dinesh Kacholia,9819249666,
 03/11/2025 00:20:05,,Not Coming,Shashi Jhawar,Kalpita Anand Mundhra,9819408854,
+03/11/2025 09:48:28,,Confirmed Presence,Aditya Daga,Visnhu Sagarmal Rathi,9033322444,
+03/11/2025 09:51:01,,Confirmed Presence,Aditya Daga,Vaibhav Bhagatraj Kabra,9819514056,
+03/11/2025 09:51:18,,Confirmed Presence,Aditya Daga,Visnhu Sagarmal Rathi,9033322444,
+03/11/2025 10:03:35,,Not Reachable,Aditya Daga,Vaibhav Bhagatraj Kabra,9819514056,
+03/11/2025 10:04:49,,Not Reachable,Aditya Daga,Thakurdas Ramvilas Bhattad,9967265584,
+03/11/2025 10:08:03,,May be Attending,Aditya Daga,Sudhir Satyanarayan Jajoo,9867277012,
+03/11/2025 10:09:00,,Not Reachable,Aditya Daga,Satyaprakash Bhanwarlal Malpani,9969403870,
+03/11/2025 10:10:44,,May be Attending,Aditya Daga,Ramkisan Hariram Laddha,9821377487,
+03/11/2025 10:12:28,,Not Reachable,Aditya Daga,Rajesh Rikhabdas Daga,9322328211,Number is incorrect 
+03/11/2025 10:14:05,,Not Reachable,Aditya Daga,Govindnarayan Shrigopal Saboo,9820335021,
+03/11/2025 10:15:13,,Phone Busy,Aditya Daga,Kishorekumar Sunderlal Mohatta,9619499944,
+03/11/2025 10:16:10,,Not Reachable,Aditya Daga,Nanakram Satyanarayan Sodhani,9322268494,Phone is switched off
+03/11/2025 10:17:43,,Confirmed Presence,Aditya Daga,Laxminarayan Ramchand Baheti,9029021191,
+03/11/2025 10:19:05,,Phone Busy,Aditya Daga,Laxminiwas Raghunath Prasad Jaju,9324386761,
+03/11/2025 10:19:44,,Phone Busy,Aditya Daga,Nanakram Satyanarayan Sodhani,9322268494,
+03/11/2025 10:20:10,,Not Reachable,Aditya Daga,Parag Arun Binani,9892444456,
+03/11/2025 10:20:35,,Confirmed Presence,Aditya Daga,Sudhir Satyanarayan Jajoo,9867277012,
+03/11/2025 11:18:11,,Not Coming,Anand Omprakash Daliya,Kailash Shyamsunder Biyani,9820960490,Family function
+03/11/2025 12:28:02,,Confirmed Presence,Shri Gulabji Jaju,Anurag Natwarlal Dhoot,9987753824,2 person will attend 
+03/11/2025 12:28:51,,Not Reachable,Shri Gulabji Jaju,Bharat Surajmal Gaggad,9821524187,Switch off
+03/11/2025 12:29:27,,Not Reachable,Shri Gulabji Jaju,Kishore Ramdayal Nawal,9223388791,Invalid number 
+03/11/2025 12:30:04,,Confirmed Presence,Shri Gulabji Jaju,Manmohan Madanlal Damani,9820450815,1/2  person will come
+03/11/2025 12:30:37,,Confirmed Presence,Shri Gulabji Jaju,Manoj Ghanshyamdas Laddha,9323541634,5/6 person 
+03/11/2025 12:31:14,,Confirmed Presence,Shri Gulabji Jaju,Nandkishor  Kailashchand  Baheti,9833353033,2 person
+03/11/2025 12:32:06,,Confirmed Presence,Shri Gulabji Jaju,Pawankumar Hulashchand Rathi,7977105715,4 persona
+03/11/2025 12:32:39,,Not Coming,Shri Gulabji Jaju,Rajesh Ghanshyamdas Taori,9821333259,Out of mumbai 
+03/11/2025 12:33:01,,Confirmed Presence,Shri Gulabji Jaju,Rahul Omshankar Assawa,9820454734,
+03/11/2025 12:33:29,,Not Coming,Shri Gulabji Jaju,Sandeep Ramakant Jajoo,9321210074,Out of mumbai 
+03/11/2025 12:33:57,,Confirmed Presence,Shri Gulabji Jaju,Satyanarayan Ramakishan Toshniwal,9029687624,
+03/11/2025 12:35:10,,Phone Busy,Shri Gulabji Jaju,Shivprasad Faujmal Lakhotia,7208855720,Not exist number
+03/11/2025 12:35:52,,Confirmed Presence,Shri Gulabji Jaju,Sunil Prahladrai Somani,9322694897,3/4 persons 
+03/11/2025 12:37:06,,Not Coming,Shri Gulabji Jaju,Vinay Sushil Malpani,9702512632,Shifted to banglore 
+03/11/2025 12:37:34,,Not Coming,Shri Gulabji Jaju,Umesh Ramvallabh Mundra,9819286245,Going in a marriage 
+03/11/2025 12:37:51,,Confirmed Presence,Shri Gulabji Jaju,Vrijesh Nagarmal Kabra,9820255691,
+03/11/2025 17:11:29,,Not Coming,Neelam Gourishankar Toshniwal,Chanchal Deepak Rathi,9892303256,
+03/11/2025 17:12:38,,Phone Busy,Neelam Gourishankar Toshniwal,Deepali Ramavtar Gaggar,9004063131,
+03/11/2025 17:13:04,,Not Coming,Neelam Gourishankar Toshniwal,Veena Mahendrakumar Saboo,8368650140,
+03/11/2025 17:14:08,,Not Coming,Neelam Gourishankar Toshniwal,Veena Mahendrakumar Saboo,8368650140,
+03/11/2025 17:16:03,,Confirmed Presence,Neelam Gourishankar Toshniwal,Varsha Anupam Malpani,9322507723,Not registered 
+03/11/2025 17:22:20,,Phone Busy,Neelam Gourishankar Toshniwal,Seema Dinesh Sodhani,9969121458,
+03/11/2025 17:24:02,,Confirmed Presence,Neelam Gourishankar Toshniwal,Madhu Balmukund Dakhera,9819781909,Not registered
+03/11/2025 17:25:42,,May be Attending,Neelam Gourishankar Toshniwal,Lalita Naresh Maheshwari,9324460852,
+03/11/2025 17:26:01,,Not Reachable,Neelam Gourishankar Toshniwal,Deepali Ramavtar Gaggar,9004063131,
+03/11/2025 17:26:25,,Not Coming,Neelam Gourishankar Toshniwal,Kusum Naresh Kabra,9820151778,
+03/11/2025 18:06:59,,Confirmed Presence,Shri Miteshji Tawari,Nilesh Bharat Tawari,9323192651,
+03/11/2025 18:08:26,,Not Coming,Shri Miteshji Tawari,Omprakash Shivdayal Falod,9322329791,
+03/11/2025 18:12:57,,Confirmed Presence,Shri Miteshji Tawari,Anuj Krishanchandra Tawani,9820894257,2 people
+03/11/2025 18:15:24,,Confirmed Presence,Shri Miteshji Tawari,Banwarilal Shivdayal Jethaliya,9820189523,2 people
