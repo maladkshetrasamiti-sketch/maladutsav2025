@@ -26,77 +26,88 @@ def create_dirs():
     """Create output directory if it doesn't exist."""
     os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
-def add_floral_border(image):
-    """Add a realistic floral border with gradient petals and embossed look on a pure white background."""
+def add_stationery_border(image):
+    """Replace the floral border with a school-stationery / books themed border.
+
+    The function keeps the same name to avoid changing other calls. It draws a
+    warm paper-like background, a notebook-left margin, faint ruled lines,
+    punched-hole markers, and small book/pencil-style icons in the corners.
+    """
     if not isinstance(image, Image.Image):
         image = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
 
-    border_width = 20
+    border_width = 28
     new_size = (image.width + 2 * border_width, image.height + 2 * border_width)
 
-    # Start with pure white background
-    bordered = Image.new('RGB', new_size, (255, 255, 255))
+    # Paper-tinted background (soft warm white)
+    paper_color = (255, 250, 240)
+    bordered = Image.new('RGB', new_size, paper_color)
     bordered.paste(image, (border_width, border_width))
 
     draw = ImageDraw.Draw(bordered)
 
-    # Helper to create gradient-filled circle (for petals)
-    def radial_gradient(draw, center, radius, inner_color, outer_color, steps=10):
-        cx, cy = center
-        for i in range(steps):
-            r = radius * (1 - i / steps)
-            color = tuple([
-                int(inner_color[j] + (outer_color[j] - inner_color[j]) * (i / steps))
-                for j in range(3)
-            ])
-            draw.ellipse(
-                [cx - r, cy - r, cx + r, cy + r],
-                fill=color, outline=color
-            )
+    # Draw a subtle paper top strip (like a header label)
+    header_h = int(border_width * 0.9)
+    header_box = [border_width, border_width - header_h, new_size[0] - border_width, border_width]
+    draw.rectangle(header_box, fill=(249, 241, 228))
 
-    # Flower with gradient and light shadow for embossed effect
-    def draw_flower(x, y, size):
-        shadow_offset = 2
-        shadow_color = (200, 100, 150)
-        petal_inner = (255, 140, 180)  # bright center
-        petal_outer = (200, 50, 120)   # dark pink edge
-        center_color = (255, 80, 120)
+    # Notebook left margin (red) and faint vertical guide (blue)
+    left_margin_x = border_width + 12
+    draw.line([(left_margin_x, border_width), (left_margin_x, new_size[1] - border_width)], fill=(231, 76, 60), width=2)
+    guide_x = left_margin_x + 8
+    draw.line([(guide_x, border_width), (guide_x, new_size[1] - border_width)], fill=(189, 195, 199), width=1)
 
-        # Shadow first (soft emboss look)
-        for angle in range(0, 360, 45):
-            sx = x + shadow_offset + size * 0.5 * np.cos(np.radians(angle))
-            sy = y + shadow_offset + size * 0.5 * np.sin(np.radians(angle))
-            radial_gradient(draw, (sx, sy), size / 4, shadow_color, (255, 255, 255), steps=6)
+    # Ruled horizontal lines across the whole bordered area (faint blue)
+    line_color = (214, 234, 248)
+    spacing = 24
+    for y in range(border_width + 8, new_size[1] - border_width, spacing):
+        draw.line([(border_width + 6, y), (new_size[0] - border_width - 6, y)], fill=line_color, width=1)
 
-        # Petals with gradient
-        for angle in range(0, 360, 45):
-            px = x + size * 0.5 * np.cos(np.radians(angle))
-            py = y + size * 0.5 * np.sin(np.radians(angle))
-            radial_gradient(draw, (px, py), size / 4, petal_inner, petal_outer)
+    # Punch-hole markers on the left (three small circles)
+    hole_r = 4
+    hole_x = border_width - 6
+    holes_y = [border_width + 40, new_size[1] // 2, new_size[1] - border_width - 40]
+    for hy in holes_y:
+        draw.ellipse([(hole_x - hole_r, hy - hole_r), (hole_x + hole_r, hy + hole_r)], fill=(240, 238, 235), outline=(200, 200, 200))
 
-        # Flower center
-        radial_gradient(draw, (x, y), size / 5, center_color, (150, 20, 70))
+    # Small book icon (top-right)
+    def draw_book(cx, cy, w=30, h=20):
+        left = cx - w // 2
+        top = cy - h // 2
+        right = left + w
+        bottom = top + h
+        # book cover
+        draw.rectangle([left, top, right, bottom], fill=(142, 68, 173), outline=(110, 44, 133))
+        # spine
+        spine_x = left + 6
+        draw.line([(spine_x, top), (spine_x, bottom)], fill=(92, 40, 106), width=2)
+        # pages (small white lines)
+        for i in range(2):
+            draw.line([(left + 8 + i*6, top + 4), (right - 6 + i*2, top + 4)], fill=(255, 240, 245), width=1)
 
-    flower_size = border_width * 2
-    draw_flower(border_width + flower_size/2, border_width + flower_size/2, flower_size)
-    draw_flower(new_size[0] - border_width - flower_size/2, border_width + flower_size/2, flower_size)
-    draw_flower(border_width + flower_size/2, new_size[1] - border_width - flower_size/2, flower_size)
-    draw_flower(new_size[0] - border_width - flower_size/2, new_size[1] - border_width - flower_size/2, flower_size)
+    # Small pencil icon (bottom-right)
+    def draw_pencil(cx, cy, scale=1.0):
+        pw = int(28 * scale)
+        ph = int(8 * scale)
+        left = cx - pw // 2
+        top = cy - ph // 2
+        # pencil body
+        draw.rectangle([left, top, left + pw, top + ph], fill=(243, 156, 18), outline=(200, 120, 10))
+        # tip
+        tip = [(left + pw, top), (left + pw + 6, top + ph // 2), (left + pw, top + ph)]
+        draw.polygon(tip, fill=(149, 165, 166))
 
-    # Elegant vine lines
-    vine_color = (180, 70, 130)
-    vine_width = 2
-    draw.line([(border_width * 2, border_width), (new_size[0] - border_width * 2, border_width)], fill=vine_color, width=vine_width)
-    draw.line([(border_width * 2, new_size[1] - border_width), (new_size[0] - border_width * 2, new_size[1] - border_width)], fill=vine_color, width=vine_width)
-    draw.line([(border_width, border_width * 2), (border_width, new_size[1] - border_width * 2)], fill=vine_color, width=vine_width)
-    draw.line([(new_size[0] - border_width, border_width * 2), (new_size[0] - border_width, new_size[1] - border_width * 2)], fill=vine_color, width=vine_width)
+    draw_book(new_size[0] - border_width - 20, border_width + 16, w=34, h=22)
+    draw_pencil(new_size[0] - border_width - 18, new_size[1] - border_width - 16, scale=1.0)
 
-    # Slight enhancement to make it pop more
-    bordered = bordered.filter(ImageFilter.SMOOTH_MORE)
+    # Light frame around the photo area to make it look like mounted on paper
+    frame_box = [border_width - 2, border_width - 2, new_size[0] - border_width + 2, new_size[1] - border_width + 2]
+    draw.rectangle(frame_box, outline=(220, 220, 220), width=2)
+
+    # Slight smoothing and contrast so the stationery looks pleasant
+    bordered = bordered.filter(ImageFilter.SMOOTH)
     enhancer = ImageEnhance.Contrast(bordered)
-    bordered = enhancer.enhance(1.1)
-    enhancer = ImageEnhance.Brightness(bordered)
-    bordered = enhancer.enhance(1.05)
+    bordered = enhancer.enhance(1.03)
 
     return bordered
 
@@ -244,13 +255,13 @@ def process_image(input_path, output_path):
         # Enhance image quality
         # pil_image = enhance_image_quality(pil_image)
         pil_image = make_background_white(pil_image)
-        
-        # Add the floral border
-        pil_image = add_floral_border(pil_image)
-        
+
+        # Add the stationery/books themed border
+        pil_image = add_stationery_border(pil_image)
+
         # Save the final image
         pil_image.save(output_path, quality=95)
-        
+
         print(f"✓ Processed: {os.path.basename(input_path)}")
         return True
         
