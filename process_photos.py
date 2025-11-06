@@ -242,7 +242,7 @@ def process_image(input_path, output_path):
         pil_image = Image.fromarray(cv2.cvtColor(canvas, cv2.COLOR_BGR2RGB))
         
         # Enhance image quality
-        pil_image = enhance_image_quality(pil_image)
+        # pil_image = enhance_image_quality(pil_image)
         pil_image = make_background_white(pil_image)
         
         # Add the floral border
