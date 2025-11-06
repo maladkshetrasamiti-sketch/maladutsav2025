@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+fff
 Process student photos for certificate printing:
 - Detect faces in each photo
 - Crop to passport size proportion
