@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-fff
+process_photos.py
+
 Process student photos for certificate printing:
 - Detect faces in each photo
 - Crop to passport size proportion
@@ -27,87 +28,32 @@ def create_dirs():
     os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
 def add_stationery_border(image):
-    """Replace the floral border with a school-stationery / books themed border.
+    """Add a simple black-lined border around the photo.
 
-    The function keeps the same name to avoid changing other calls. It draws a
-    warm paper-like background, a notebook-left margin, faint ruled lines,
-    punched-hole markers, and small book/pencil-style icons in the corners.
+    The photo is pasted unchanged and a clean black border is drawn in the
+    margins so the original image content is preserved.
     """
     if not isinstance(image, Image.Image):
         image = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
 
-    border_width = 28
+    border_width = 12
     new_size = (image.width + 2 * border_width, image.height + 2 * border_width)
 
-    # Paper-tinted background (soft warm white)
-    paper_color = (255, 250, 240)
-    bordered = Image.new('RGB', new_size, paper_color)
+    # Plain white background for the border area
+    bordered = Image.new('RGB', new_size, (255, 255, 255))
     bordered.paste(image, (border_width, border_width))
 
     draw = ImageDraw.Draw(bordered)
 
-    # Draw a subtle paper top strip (like a header label)
-    header_h = int(border_width * 0.9)
-    header_box = [border_width, border_width - header_h, new_size[0] - border_width, border_width]
-    draw.rectangle(header_box, fill=(249, 241, 228))
+    # Outer black rectangle (just outside the photo area)
+    outer_box = [border_width - 2, border_width - 2, new_size[0] - border_width + 1, new_size[1] - border_width + 1]
+    draw.rectangle(outer_box, outline=(0, 0, 0), width=3)
 
-    # Notebook left margin (red) and faint vertical guide (blue)
-    left_margin_x = border_width + 12
-    draw.line([(left_margin_x, border_width), (left_margin_x, new_size[1] - border_width)], fill=(231, 76, 60), width=2)
-    guide_x = left_margin_x + 8
-    draw.line([(guide_x, border_width), (guide_x, new_size[1] - border_width)], fill=(189, 195, 199), width=1)
+    # Thin inner line for subtle double-line border
+    inner_box = [border_width + 4, border_width + 4, new_size[0] - border_width - 5, new_size[1] - border_width - 5]
+    draw.rectangle(inner_box, outline=(0, 0, 0), width=1)
 
-    # Ruled horizontal lines across the whole bordered area (faint blue)
-    line_color = (214, 234, 248)
-    spacing = 24
-    for y in range(border_width + 8, new_size[1] - border_width, spacing):
-        draw.line([(border_width + 6, y), (new_size[0] - border_width - 6, y)], fill=line_color, width=1)
-
-    # Punch-hole markers on the left (three small circles)
-    hole_r = 4
-    hole_x = border_width - 6
-    holes_y = [border_width + 40, new_size[1] // 2, new_size[1] - border_width - 40]
-    for hy in holes_y:
-        draw.ellipse([(hole_x - hole_r, hy - hole_r), (hole_x + hole_r, hy + hole_r)], fill=(240, 238, 235), outline=(200, 200, 200))
-
-    # Small book icon (top-right)
-    def draw_book(cx, cy, w=30, h=20):
-        left = cx - w // 2
-        top = cy - h // 2
-        right = left + w
-        bottom = top + h
-        # book cover
-        draw.rectangle([left, top, right, bottom], fill=(142, 68, 173), outline=(110, 44, 133))
-        # spine
-        spine_x = left + 6
-        draw.line([(spine_x, top), (spine_x, bottom)], fill=(92, 40, 106), width=2)
-        # pages (small white lines)
-        for i in range(2):
-            draw.line([(left + 8 + i*6, top + 4), (right - 6 + i*2, top + 4)], fill=(255, 240, 245), width=1)
-
-    # Small pencil icon (bottom-right)
-    def draw_pencil(cx, cy, scale=1.0):
-        pw = int(28 * scale)
-        ph = int(8 * scale)
-        left = cx - pw // 2
-        top = cy - ph // 2
-        # pencil body
-        draw.rectangle([left, top, left + pw, top + ph], fill=(243, 156, 18), outline=(200, 120, 10))
-        # tip
-        tip = [(left + pw, top), (left + pw + 6, top + ph // 2), (left + pw, top + ph)]
-        draw.polygon(tip, fill=(149, 165, 166))
-
-    draw_book(new_size[0] - border_width - 20, border_width + 16, w=34, h=22)
-    draw_pencil(new_size[0] - border_width - 18, new_size[1] - border_width - 16, scale=1.0)
-
-    # Light frame around the photo area to make it look like mounted on paper
-    frame_box = [border_width - 2, border_width - 2, new_size[0] - border_width + 2, new_size[1] - border_width + 2]
-    draw.rectangle(frame_box, outline=(220, 220, 220), width=2)
-
-    # Slight smoothing and contrast so the stationery looks pleasant
-    bordered = bordered.filter(ImageFilter.SMOOTH)
-    enhancer = ImageEnhance.Contrast(bordered)
-    bordered = enhancer.enhance(1.03)
+    return bordered
 
     return bordered
 
