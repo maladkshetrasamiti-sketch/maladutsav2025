@@ -97,6 +97,7 @@ def write_includes(includes_dir: str, updated_str: str):
         f'<div class="page-header">\n'
         f'  <h1>Parent and Student List</h1>\n'
         f'  <div class="updated">Updated: {updated_str}</div>\n'
+        f'  <div class="info-log">All data is recovered and this includes all marksheets uploaded till the provided timestamp: {updated_str}</div>\n'
         f'  <div style="text-align:center; margin-bottom:12px">\n'
         f'    <input id="searchInput" type="text" placeholder="Search parent, student or timestamp..." onkeyup="searchTable()" />\n'
         f'  </div>\n'
@@ -135,6 +136,7 @@ def build_main_html(df: pd.DataFrame, includes_dir: str, output_html: str, updat
         " .footer{ text-align:center; color:#7f8c8d; margin-top:14px }"
         " .updated{ text-align:center; color:#7f8c8d; margin:6px 0 12px; font-size:0.95rem }"
         " .no-results{ text-align:center; color:#7f8c8d; padding:12px; display:none }"
+        " .info-log{ background:#eaf4ff; border-left:4px solid #3498db; padding:10px 12px; margin:8px 0; color:#2c3e50; border-radius:4px }"
         " @media (max-width:600px){ table{ display:block; overflow-x:auto } }"
     )
 
@@ -152,6 +154,7 @@ def build_main_html(df: pd.DataFrame, includes_dir: str, output_html: str, updat
         <div class="page-header">
             <h1>Parent and Student List</h1>
             <div class="updated"><b>Updated: {updated_str}</b></div>
+            <div class="info-log">All data is recovered and this includes all marksheets uploaded till the provided timestamp: {updated_str}</div>
             <div style="text-align:center; margin-bottom:12px">
                 <input id="searchInput" type="text" placeholder="Search parent, student or timestamp..." onkeyup="searchTable()" />
             </div>
@@ -251,9 +254,25 @@ def main():
     # Allow using a local CSV file instead of downloading from Google Sheets.
     # Priority: --csv-file if provided, else sheet-id+gid (or env vars).
     if csv_file:
+        # Accept either an absolute path or a basename. If the exact path
+        # doesn't exist, attempt to locate the file by basename under the
+        # repository/script directory.
         if not os.path.exists(csv_file):
-            print(f"CSV file not found: {csv_file}")
-            sys.exit(1)
+            base = os.path.basename(csv_file)
+            print(f"CSV file not found at given path: {csv_file}\nSearching for '{base}' in project folder...")
+            found = None
+            root_search = os.path.dirname(os.path.abspath(__file__))
+            for root, dirs, files in os.walk(root_search):
+                if base in files:
+                    found = os.path.join(root, base)
+                    break
+            if found:
+                print(f"Found CSV at: {found}")
+                csv_file = found
+            else:
+                print(f"CSV file not found: {csv_file}")
+                sys.exit(1)
+
         try:
             print(f"Reading local CSV file: {csv_file}")
             df = pd.read_csv(csv_file)
