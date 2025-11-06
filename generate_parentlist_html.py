@@ -239,25 +239,39 @@ def main():
     parser = argparse.ArgumentParser(description='Generate ParentList HTML from Google Sheet CSV')
     parser.add_argument('--sheet-id', default=None, help='Google sheet id (part of the URL)')
     parser.add_argument('--gid', default=None, help='sheet gid (tab id)')
+    parser.add_argument('--csv-file', default=None, help='Path to a local CSV file (3 columns) to use instead of downloading from Google Sheets')
     parser.add_argument('--output', default='ParentList_Marksheet.html', help='output HTML filename')
     parser.add_argument('--serve', type=int, nargs='?', const=8000, help='serve the folder on this port after generation (optional)')
     args = parser.parse_args()
 
     sheet_id = args.sheet_id if args.sheet_id else os.environ.get('SHEET_ID')
     gid = args.gid if args.gid else os.environ.get('SHEET_GID')
+    csv_file = args.csv_file
 
-    if not sheet_id or not gid:
-        print('Sheet ID and gid are required. Either pass --sheet-id and --gid or set SHEET_ID and SHEET_GID environment variables.')
-        parser.print_help()
-        sys.exit(1)
+    # Allow using a local CSV file instead of downloading from Google Sheets.
+    # Priority: --csv-file if provided, else sheet-id+gid (or env vars).
+    if csv_file:
+        if not os.path.exists(csv_file):
+            print(f"CSV file not found: {csv_file}")
+            sys.exit(1)
+        try:
+            print(f"Reading local CSV file: {csv_file}")
+            df = pd.read_csv(csv_file)
+        except Exception as e:
+            print('Failed to read local CSV file:', e)
+            sys.exit(2)
+    else:
+        if not sheet_id or not gid:
+            print('Sheet ID and gid are required when --csv-file is not provided. Either pass --sheet-id and --gid or set SHEET_ID and SHEET_GID environment variables.')
+            parser.print_help()
+            sys.exit(1)
 
-    try:
-        df = fetch_sheet_csv(sheet_id, gid)
-    except Exception as e:
-        print('\nFailed to download the sheet as CSV. If the sheet is private, make it "Anyone with the link" can view, or use a service account.\n')
-        print('Error:', e)
-        sys.exit(2)
-
+        try:
+            df = fetch_sheet_csv(sheet_id, gid)
+        except Exception as e:
+            print('\nFailed to download the sheet as CSV. If the sheet is private, make it "Anyone with the link" can view, or use a service account.\n')
+            print('Error:', e)
+            sys.exit(2)
     df = normalize_and_sort(df)
 
     includes_dir = os.path.join(os.path.dirname(args.output) or '.', 'includes')
