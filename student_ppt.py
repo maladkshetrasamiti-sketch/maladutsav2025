@@ -211,18 +211,26 @@ def create_student_slide(prs, student):
     # Map field names to desired display names
     field_display_names = {
         'Parent Name': 'Parent Name',
-        'School Name': 'School Name',
-        'Grade Standard': 'Grade Standard'
+        'Standard': 'Standard',
+        'Percentage': 'Percentage'
     }
 
     # Add each detail as a new paragraph
     for field, display_name in field_display_names.items():
         if field in student.index and not pd.isna(student[field]):
             p = details_frame.add_paragraph()
-            p.text = f"{display_name}: {student[field]}"
+            if display_name == 'Percentage':
+                p.text = f"{student[field]}"
+            else:
+                p.text = f"{display_name}: {student[field]}"
             p.alignment = PP_ALIGN.CENTER
-            p.font.size = DETAIL_FONT_SIZE
-            p.font.color.rgb = RGBColor(255, 255, 255)  # White text
+            if display_name == 'Percentage':
+                p.font.size = Pt(28)
+                p.font.bold = True
+                p.font.color.rgb = RGBColor(255, 0, 0)
+            else:
+                p.font.size = DETAIL_FONT_SIZE
+                p.font.color.rgb = RGBColor(255, 255, 255)  # White text    
             p.space_after = Pt(12)  # Consistent spacing between lines
     
     # Add photo on the right if available
