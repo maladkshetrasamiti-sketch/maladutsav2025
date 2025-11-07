@@ -71,7 +71,9 @@ def main():
             f"Registered Mobile: {phone}\n"
             f"Registration ID: {reg_id}\n"
             f"Registered for: {num_people} members\n\n"
-            "कार्यक्रम प्रारंभ: रविवार, 9 नवम्बर 2025 - शाम 5:30 बजे से\n"
+            "Program Start: Sunday, 9 Nov 2025 5:30 pm\n"
+            "Light Chai-Nashta 5:00 pm से उपलब्ध रहेगा\n"
+            "कार्यक्रम के बाद महाप्रसाद अवश्य लें\n"
             "Please show this message at the venue."
         )
 
