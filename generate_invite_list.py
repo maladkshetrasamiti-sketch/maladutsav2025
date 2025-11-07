@@ -70,7 +70,7 @@ def main():
             f"Jai Mahesh! नमस्कार {name} जी, आपका माहेश्वरी प्रगति मंडल, मालाड क्षेत्रीय समितियों द्वारा आयोजित मालाड उत्सव 2025 में हार्दिक स्वागत है! आपकी पंजीकरण जानकारी इस प्रकार है:\n"
             f"Registered Mobile: {phone}\n"
             f"Registration ID: {reg_id}\n"
-            f"Registered for: {num_people} members\n\n"
+            f"Registered for: {num_people} members\n"
             "Program Start: Sunday, 9 Nov 2025 5:30 pm\n"
             "Light Chai-Nashta 5:00 pm से उपलब्ध रहेगा\n"
             "कार्यक्रम के बाद महाप्रसाद अवश्य लें\n"
