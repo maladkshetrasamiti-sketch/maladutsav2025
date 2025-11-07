@@ -1,0 +1,8 @@
+        message = (
+            f"Jai Mahesh! नमस्कार {name} जी, आपका माहेश्वरी प्रगति मंडल, मालाड क्षेत्रीय समितियों द्वारा आयोजित मालाड उत्सव 2025 में हार्दिक स्वागत है! आपकी पंजीकरण जानकारी इस प्रकार है:\n"
+            f"Registered Mobile: {phone}\n"
+            f"Registration ID: {reg_id}\n"
+            f"Registered for: {num_people} members\n\n"
+            "रविवार, 9 नवम्बर 2025\n"
+            "Please show this message at the venue."
+        )
