@@ -71,7 +71,7 @@ def main():
             f"Registered Mobile: {phone}\n"
             f"Registration ID: {reg_id}\n"
             f"Registered for: {num_people} members\n\n"
-            "रविवार, 9 नवम्बर 2025\n"
+            "कार्यक्रम प्रारंभ: रविवार, 9 नवम्बर 2025 - शाम 5:30 बजे से\n"
             "Please show this message at the venue."
         )
 
