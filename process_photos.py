@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """
+<<<<<<< HEAD
 fff
+=======
+process_photos.py
+
+>>>>>>> 6981ae3878ef593fb9e33561925a09c779572c8e
 Process student photos for certificate printing:
 - Detect faces in each photo
 - Crop to passport size proportion
@@ -26,6 +31,7 @@ def create_dirs():
     """Create output directory if it doesn't exist."""
     os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
+<<<<<<< HEAD
 def add_floral_border(image):
     """Add a realistic floral border with gradient petals and embossed look on a pure white background."""
     if not isinstance(image, Image.Image):
@@ -35,11 +41,27 @@ def add_floral_border(image):
     new_size = (image.width + 2 * border_width, image.height + 2 * border_width)
 
     # Start with pure white background
+=======
+def add_stationery_border(image):
+    """Add a simple black-lined border around the photo.
+
+    The photo is pasted unchanged and a clean black border is drawn in the
+    margins so the original image content is preserved.
+    """
+    if not isinstance(image, Image.Image):
+        image = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+
+    border_width = 12
+    new_size = (image.width + 2 * border_width, image.height + 2 * border_width)
+
+    # Plain white background for the border area
+>>>>>>> 6981ae3878ef593fb9e33561925a09c779572c8e
     bordered = Image.new('RGB', new_size, (255, 255, 255))
     bordered.paste(image, (border_width, border_width))
 
     draw = ImageDraw.Draw(bordered)
 
+<<<<<<< HEAD
     # Helper to create gradient-filled circle (for petals)
     def radial_gradient(draw, center, radius, inner_color, outer_color, steps=10):
         cx, cy = center
@@ -97,6 +119,17 @@ def add_floral_border(image):
     bordered = enhancer.enhance(1.1)
     enhancer = ImageEnhance.Brightness(bordered)
     bordered = enhancer.enhance(1.05)
+=======
+    # Outer black rectangle (just outside the photo area)
+    outer_box = [border_width - 2, border_width - 2, new_size[0] - border_width + 1, new_size[1] - border_width + 1]
+    draw.rectangle(outer_box, outline=(0, 0, 0), width=3)
+
+    # Thin inner line for subtle double-line border
+    inner_box = [border_width + 4, border_width + 4, new_size[0] - border_width - 5, new_size[1] - border_width - 5]
+    draw.rectangle(inner_box, outline=(0, 0, 0), width=1)
+
+    return bordered
+>>>>>>> 6981ae3878ef593fb9e33561925a09c779572c8e
 
     return bordered
 
@@ -242,6 +275,7 @@ def process_image(input_path, output_path):
         pil_image = Image.fromarray(cv2.cvtColor(canvas, cv2.COLOR_BGR2RGB))
         
         # Enhance image quality
+<<<<<<< HEAD
         pil_image = enhance_image_quality(pil_image)
         pil_image = make_background_white(pil_image)
         
@@ -251,6 +285,17 @@ def process_image(input_path, output_path):
         # Save the final image
         pil_image.save(output_path, quality=95)
         
+=======
+        # pil_image = enhance_image_quality(pil_image)
+        pil_image = make_background_white(pil_image)
+
+        # Add the stationery/books themed border
+        pil_image = add_stationery_border(pil_image)
+
+        # Save the final image
+        pil_image.save(output_path, quality=95)
+
+>>>>>>> 6981ae3878ef593fb9e33561925a09c779572c8e
         print(f"✓ Processed: {os.path.basename(input_path)}")
         return True
         
