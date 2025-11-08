@@ -67,11 +67,10 @@ def main():
         reg_id = str(row._3).strip()  # Registration ID
 
         message = (
-            f"Jai Mahesh! Namaskar {name} ji, Welcome to Malad Utsav 2025\n"
-            f"Registration ID: {reg_id}\n"
-            f"Registered for: {num_people} members\n"
-            "Sunday, 9 Nov 5 pm\n"
-            "Please show this msg at the venue."
+            f"Jai Mahesh! {name} ji, Welcome to Malad Utsav 2025\n"
+            f"Reg ID: {reg_id} for {num_people} member\n"
+            "Sun, 9 Nov 5pm\n"
+            "Pls show this msg at the venue."
         )
 
         message_wa = (
