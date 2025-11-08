@@ -76,10 +76,31 @@ def main():
             "Please show this message at the venue."
         )
 
-        encoded_message = urllib.parse.quote_plus(message)
+        message_wa = (
+            f"🌸 *Jai Mahesh!* नमस्कार {name} जी,\n\n"
+            "आपका *माहेश्वरी प्रगति मंडल*, मालाड क्षेत्रीय समितियों द्वारा आयोजित "
+            "*मालाड उत्सव 2025* में हार्दिक स्वागत है! 🎉\n\n"
+            f"आपकी पंजीकरण जानकारी इस प्रकार है:\n"
+            f"📱 *Registered Mobile:* {phone}\n"
+            f"🆔 *Registration ID:* {reg_id}\n"
+            f"👨‍👩‍👧‍👦 *Registered for:* {num_people} members\n\n"
+            "📅 *रविवार, 9 नवम्बर 2025*\n"
+            "🕠 *कार्यक्रम प्रारंभ:* शाम 5:30 बजे से\n"
+            "📍 *स्थल:* माहेश्वरी प्लॉट, बोरिवली (पश्चिम)\n"
+            "📍 *Google Map Pin:* https://maps.app.goo.gl/81cSEuYJy9XTTzSD8\n\n"
+            "☕ *Light Chai–Nashta:* शाम 5:00 बजे से उपलब्ध रहेगा\n"
+            "🍛 *कार्यक्रम के बाद महाप्रसाद अवश्य लें*\n"
+            "🅿️ *Valet Parking सुविधा उपलब्ध*\n"
+            "🚇 *Nearest Metro Station:* Borivali West / Eksar\n\n"
+            "कृपया समय पर पधारें और इस अद्भुत कार्यक्रम का पूर्ण आनंद उठाएँ! 🌼\n"
+            "*Please show this message at the venue.*🙏"
+        )
 
-        whatsapp_link = f'<a href="https://wa.me/91{phone}?text={encoded_message}" target="_blank">WhatsApp</a>'
-        sms_link = f'<a href="sms:+91{phone}?body={encoded_message}" target="_blank">SMS</a>'
+        encoded_message_sms = urllib.parse.quote_plus(message)
+        encoded_message_wa = urllib.parse.quote_plus(message_wa)
+
+        whatsapp_link = f'<a href="https://wa.me/91{phone}?text={encoded_message_wa}" target="_blank">WhatsApp</a>'
+        sms_link = f'<a href="sms:+91{phone}?body={encoded_message_sms}" target="_blank">SMS</a>'
 
         html += f"""
         <tr>
