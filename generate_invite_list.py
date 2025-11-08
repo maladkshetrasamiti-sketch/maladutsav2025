@@ -70,7 +70,7 @@ def main():
             f"Jai Mahesh! {name} ji, Welcome to Malad Utsav 2025\n"
             f"Reg ID: {reg_id} for {num_people} member\n"
             "Sun, 9 Nov 5pm\n"
-            "Pls show this msg at the venue."
+            "Pls show msg at venue."
         )
 
         message_wa = (
