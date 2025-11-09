@@ -51,11 +51,12 @@ def main():
     <table>
     <tr>
         <th>#</th>
-        <th>Member Name</th>
-        <th>Registration ID</th>
-        <th># of People</th>
         <th>WhatsApp</th>
         <th>SMS</th>
+        <th>Member Name</th>
+        <th>Phone</th>
+        <th># of People</th>
+        <th>Registration ID</th>
     </tr>
     """
 
@@ -102,11 +103,12 @@ def main():
         html += f"""
         <tr>
             <td>{i}</td>
-            <td>{name}</td>
-            <td>{reg_id}</td>
-            <td>{num_people}</td>
             <td>{whatsapp_link}</td>
             <td>{sms_link}</td>
+            <td>{name}</td>
+            <td>{phone}</td>
+            <td>{num_people}</td>
+            <td>{reg_id}</td>
         </tr>
         """
 
