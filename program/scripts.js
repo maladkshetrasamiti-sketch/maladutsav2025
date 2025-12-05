@@ -216,6 +216,7 @@ function toggleStatusFilterFromToolbar(statusKey) {
   if (typeof searchTable === 'function') searchTable();
   else applyStatusFilterDirectly();
   setTimeout(updateStatusCounts, 50);
+  toggleStatusDropdown(false);
 }
 
 function applyStatusFilterDirectly() {
