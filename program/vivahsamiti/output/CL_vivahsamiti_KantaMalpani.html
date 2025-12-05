@@ -1,139 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Calling List - Kanta Malpani</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Link to external stylesheet (relative to HTML file) -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <img src="https://maladkshetrasamiti-sketch.github.io/maladutsav2025/program\vivahsamiti\/MPM_logo.png" alt="Malad Kshetra Samiti Logo" style="display:block; margin-left:auto; margin-right:auto; width:100px; height:auto;">
+  <h2>Calling List - Kanta Malpani</h2>
+  <div class="top-note">
+    <p style="font-weight: bold; margin-bottom: 6px; font-size: 15px;">
+      कृपया निम्नलिखित सरल चरणों का पालन करें:
+    </p>
+    <ul style="padding-left: 18px; margin: 0; font-size: 12px;">
+      <li><strong>Mobile Number</strong> पर क्लिक करें — कॉल अपने आप डायल हो जाएगी</li>
+      <li><strong>SMS</strong> पर क्लिक करें — आपके मोबाइल से आमंत्रण संदेश जाएगा</li>
+      <li><strong>WhatsApp</strong> पर क्लिक करें — व्हाट्सएप खुलेगा और संदेश अपने आप पोस्ट हो जाएगा</li>
+      <li>आप समाजबंधु को <strong>Meet n Greet - 2</strong> की जानकारी दें</li>
+    </ul>
+  </div>
 
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Calling List - Kanta Malpani</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            body { font-family: Arial, sans-serif; margin: 20px; background: #f8f9fa; }
-            h2 { text-align: center; }
-            .top-note { font-family: Arial, sans-serif; color: #333; line-height: 1.4; padding: 8px; max-width: 100%; box-sizing: border-box; font-size: 14px; background: #fff; border-radius: 8px; }
-            table { width: 100%; border-collapse: collapse; margin-top: 12px; table-layout: auto; white-space: nowrap; }
-            th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
-            th { background-color: #f2f2f2; position: sticky; top: 0; z-index: 1; }
-            a { color: #007bff; text-decoration: none; }
-            a:hover { text-decoration: underline; }
-            .table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; background: #fff; padding: 8px; border-radius: 8px; box-shadow: 0 0 6px rgba(0,0,0,0.06); }
-            #searchInput {
-                width: 100%;
-                max-width: 560px;
-                font-size: 1em;
-                padding: 10px 14px;
-                border-radius: 25px;
-                border: 2px solid #007bff;
-                margin: 12px auto;
-                display: block;
-                box-sizing: border-box;
-                background: white;
-            }
-            mark { background: yellow; color: black; font-weight: bold; padding: 0; }
-            .no-results { display: none; text-align: center; color: #777; margin-top: 12px; }
-            @media (max-width: 600px) {
-                th, td { padding: 6px 8px; font-size: 0.95em; }
-            }
+  <input id="searchInput" type="search" placeholder="🔍 Search by Name, Number, Registration, etc..." oninput="searchTable()" />
 
-            .badge {
-                padding: 3px 10px;
-                border-radius: 12px;
-                color: white;
-                font-size: 12px;
-                display: inline-block;
-                font-weight: 600;
-            }
+  <!-- Status toolbar -->
+  <div class="status-toolbar" id="statusToolbar" aria-hidden="false">
+    <div class="status-filter-btn" data-status-key="not called" id="btn-notcalled" onclick="toggleStatusFilterFromToolbar('not called')">
+      <span class="badge badge-notcalled">Not Called</span>
+      <span class="count" id="count-notcalled">0</span>
+    </div>
+    <div class="status-filter-btn" data-status-key="whatsapp" id="btn-whatsapp" onclick="toggleStatusFilterFromToolbar('whatsapp')">
+      <span class="badge badge-wa">WhatsApp</span>
+      <span class="count" id="count-whatsapp">0</span>
+    </div>
+    <div class="status-filter-btn" data-status-key="confirmed" id="btn-confirmed" onclick="toggleStatusFilterFromToolbar('confirmed')">
+      <span class="badge badge-confirmed">Confirmed</span>
+      <span class="count" id="count-confirmed">0</span>
+    </div>
+    <div class="status-filter-btn" data-status-key="maybe" id="btn-maybe" onclick="toggleStatusFilterFromToolbar('maybe')">
+      <span class="badge badge-maybe">Maybe</span>
+      <span class="count" id="count-maybe">0</span>
+    </div>
+    <div class="status-filter-btn" data-status-key="busy" id="btn-busy" onclick="toggleStatusFilterFromToolbar('busy')">
+      <span class="badge badge-busy">Phone Busy</span>
+      <span class="count" id="count-busy">0</span>
+    </div>
+    <div class="status-filter-btn" data-status-key="not reachable" id="btn-nr" onclick="toggleStatusFilterFromToolbar('not reachable')">
+      <span class="badge badge-nr">Not Reachable</span>
+      <span class="count" id="count-nr">0</span>
+    </div>
+    <div class="status-filter-btn" data-status-key="not coming" id="btn-no" onclick="toggleStatusFilterFromToolbar('not coming')">
+      <span class="badge badge-no">Not Coming</span>
+      <span class="count" id="count-no">0</span>
+    </div>
 
-            .badge-wa { background: #25D366; }          /* WhatsApp Green */
-            .badge-confirmed { background: #007bff; }   /* Blue */
-            .badge-maybe { background: #f0ad4e; }       /* Amber */
-            .badge-busy { background: #ff9800; }        /* Orange */
-            .badge-nr { background: #dc3545; }          /* Red */
-            .badge-no { background: #6c757d; }          /* Grey */
-            .badge-notcalled { background: #b30000; }   /* Dark Red */
+    <div class="legend" style="margin-left:auto;">
+      <strong>Total:</strong> <span id="totalVisible">0</span> visible / <span id="totalAll">0</span> total
+    </div>
+  </div>
 
-/* Floating Action Bar (bottom-right) */
-.fab-bar {
-  position: fixed;
-  right: 14px;
-  bottom: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  z-index: 9999;
-  align-items: center;
-}
+  <div class="table-wrapper">
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Assigned Person Name</th>
+          <th>WahtsApp Message</th>
+          <th>SMS</th>
+          <th>Call Status</th>
+          <th>As of</th>
+          <th>Call Log Link</th>
+        </tr>
+      </thead>
+      <tbody>
 
-/* Individual circular buttons */
-.fab {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border: 0;
-  font-size: 18px;
-  transition: transform .12s ease, box-shadow .12s ease;
-  padding: 0;
-}
-.fab:active { transform: scale(.96); }
-.fab:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.14); }
-
-/* colored buttons for filters */
-.fab-filter { background: #f8f9fa; color: #333; }
-.fab-filter.active { box-shadow: 0 8px 18px rgba(0,0,0,0.18); transform: translateY(-2px); }
-
-/* larger primary button for 'Go to Top' */
-.fab-top { background: #007bff; color: white; width:56px; height:56px; font-weight:700; }
-
-/* small label help (optional) */
-.fab-label {
-  font-size: 11px;
-  background: rgba(0,0,0,0.6);
-  color: white;
-  padding: 4px 8px;
-  border-radius: 6px;
-  margin-bottom: -6px;
-  display: none; /* hidden by default; optional to show on hover via JS */
-}            
-
-        </style>
-    </head>
-    <body>
-        <img src="https://maladkshetrasamiti-sketch.github.io/maladutsav2025/program\vivahsamiti\/MPM_logo.png" alt="Malad Kshetra Samiti Logo" style="display:block; margin-left:auto; margin-right:auto; width:100px; height:auto;">
-        <h2>Calling List - Kanta Malpani</h2>
-        <div class="top-note">
-            <p style="font-weight: bold; margin-bottom: 6px; font-size: 15px;">
-                कृपया निम्नलिखित सरल चरणों का पालन करें:
-            </p>
-            <ul style="padding-left: 18px; margin: 0; font-size: 12px;">
-                <li><strong>Mobile Number</strong> पर क्लिक करें &mdash; कॉल अपने आप डायल हो जाएगी</li>
-                <li><strong>SMS</strong> पर क्लिक करें &mdash; आपके मोबाइल से आमंत्रण संदेश जाएगा</li>
-                <li><strong>WhatsApp</strong> पर क्लिक करें &mdash; व्हाट्सएप खुलेगा और संदेश अपने आप पोस्ट हो जाएगा</li>
-                <li>आप समाजबंधु को <strong>Meet n Greet - 2</strong> की जानकारी दें</li>
-            </ul>
-        </div>
-
-        <!-- Search input (added) -->
-        <input id="searchInput" type="search" placeholder="🔍 Search by Name, Number, Registration, etc..." oninput="searchTable()" />
-
-        <div class="table-wrapper">
-            <table id="dataTable">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Assigned Person Name</th>
-                        <th>WahtsApp Message</th>
-                        <th>SMS</th>
-                        <th>Call Status</th>
-                        <th>As of</th>
-                        <th>Call Log Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-    
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>1</td>
                 <td><a href="tel:+919322251235" style="color:#007bff;" onclick="this.style.color='green'">AASTHA SAMDANI (11983) </a><br/><small style="color:#999">9322251235</small></td>
                 <td>
@@ -155,7 +97,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9322251235&entry.1475012068=AASTHA%20SAMDANI%20%2811983%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>2</td>
                 <td><a href="tel:+919321451333" style="color:#007bff;" onclick="this.style.color='green'">ABHISHEK MANTRI (16953) </a><br/><small style="color:#999">9321451333</small></td>
                 <td>
@@ -177,7 +119,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9321451333&entry.1475012068=ABHISHEK%20MANTRI%20%2816953%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>3</td>
                 <td><a href="tel:+919819260074" style="color:#007bff;" onclick="this.style.color='green'">ADITYA TOSHNIWAL (15721) </a><br/><small style="color:#999">9819260074</small></td>
                 <td>
@@ -199,7 +141,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9819260074&entry.1475012068=ADITYA%20TOSHNIWAL%20%2815721%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>4</td>
                 <td><a href="tel:+919323123559" style="color:#007bff;" onclick="this.style.color='green'">AISHWARYA BAHETI (16987) </a><br/><small style="color:#999">9323123559</small></td>
                 <td>
@@ -221,7 +163,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9323123559&entry.1475012068=AISHWARYA%20BAHETI%20%2816987%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>5</td>
                 <td><a href="tel:+919082488021" style="color:#007bff;" onclick="this.style.color='green'">AMAN CHANDAK (16661) </a><br/><small style="color:#999">9082488021</small></td>
                 <td>
@@ -243,7 +185,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9082488021&entry.1475012068=AMAN%20CHANDAK%20%2816661%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>6</td>
                 <td><a href="tel:+918871161121" style="color:#007bff;" onclick="this.style.color='green'">ANIRUDDH BIYANI (16726) </a><br/><small style="color:#999">8871161121</small></td>
                 <td>
@@ -265,7 +207,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=8871161121&entry.1475012068=ANIRUDDH%20BIYANI%20%2816726%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>7</td>
                 <td><a href="tel:+918080636097" style="color:#007bff;" onclick="this.style.color='green'">ARJUN MALLAD (9716) </a><br/><small style="color:#999">8080636097</small></td>
                 <td>
@@ -287,7 +229,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=8080636097&entry.1475012068=ARJUN%20MALLAD%20%289716%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>8</td>
                 <td><a href="tel:+919820044558" style="color:#007bff;" onclick="this.style.color='green'">ASHWINI LOYA (16143) </a><br/><small style="color:#999">9820044558</small></td>
                 <td>
@@ -309,7 +251,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9820044558&entry.1475012068=ASHWINI%20LOYA%20%2816143%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>9</td>
                 <td><a href="tel:+919594843536" style="color:#007bff;" onclick="this.style.color='green'">BHARATI LAHOTI (16189) </a><br/><small style="color:#999">9594843536</small></td>
                 <td>
@@ -331,7 +273,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9594843536&entry.1475012068=BHARATI%20LAHOTI%20%2816189%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>10</td>
                 <td><a href="tel:+919820597670" style="color:#007bff;" onclick="this.style.color='green'">CHINMAY CHANDAK (17002) </a><br/><small style="color:#999">9820597670</small></td>
                 <td>
@@ -353,7 +295,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9820597670&entry.1475012068=CHINMAY%20CHANDAK%20%2817002%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>11</td>
                 <td><a href="tel:+917506542488" style="color:#007bff;" onclick="this.style.color='green'">DEEPIKA KARWA (16904) </a><br/><small style="color:#999">7506542488</small></td>
                 <td>
@@ -375,7 +317,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=7506542488&entry.1475012068=DEEPIKA%20KARWA%20%2816904%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>12</td>
                 <td><a href="tel:+918608011412" style="color:#007bff;" onclick="this.style.color='green'">DIPTI DAGA (9738) </a><br/><small style="color:#999">8608011412</small></td>
                 <td>
@@ -397,7 +339,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=8608011412&entry.1475012068=DIPTI%20DAGA%20%289738%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>13</td>
                 <td><a href="tel:+919833307697" style="color:#007bff;" onclick="this.style.color='green'">DR. MINAL SODHANI (9916) </a><br/><small style="color:#999">9833307697</small></td>
                 <td>
@@ -419,7 +361,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9833307697&entry.1475012068=DR.%20MINAL%20SODHANI%20%289916%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>14</td>
                 <td><a href="tel:+919920560093" style="color:#007bff;" onclick="this.style.color='green'">GAURAV MUNDRA (9292) </a><br/><small style="color:#999">9920560093</small></td>
                 <td>
@@ -441,7 +383,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9920560093&entry.1475012068=GAURAV%20MUNDRA%20%289292%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>15</td>
                 <td><a href="tel:+918806825459" style="color:#007bff;" onclick="this.style.color='green'">GAYATRI ASAWA (15718) </a><br/><small style="color:#999">8806825459</small></td>
                 <td>
@@ -463,7 +405,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=8806825459&entry.1475012068=GAYATRI%20ASAWA%20%2815718%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>16</td>
                 <td><a href="tel:+919022173050" style="color:#007bff;" onclick="this.style.color='green'">HARSH MANDHANIA (14283) </a><br/><small style="color:#999">9022173050</small></td>
                 <td>
@@ -485,7 +427,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9022173050&entry.1475012068=HARSH%20MANDHANIA%20%2814283%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>17</td>
                 <td><a href="tel:+919869054472" style="color:#007bff;" onclick="this.style.color='green'">HARSHITA SARDA (15676) </a><br/><small style="color:#999">9869054472</small></td>
                 <td>
@@ -507,7 +449,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9869054472&entry.1475012068=HARSHITA%20SARDA%20%2815676%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>18</td>
                 <td><a href="tel:+919594520218" style="color:#007bff;" onclick="this.style.color='green'">HEMANT DUJARI (16867) </a><br/><small style="color:#999">9594520218</small></td>
                 <td>
@@ -529,7 +471,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9594520218&entry.1475012068=HEMANT%20DUJARI%20%2816867%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>19</td>
                 <td><a href="tel:+918655926263" style="color:#007bff;" onclick="this.style.color='green'">JAGRUTI MUNDADA (16716) </a><br/><small style="color:#999">8655926263</small></td>
                 <td>
@@ -551,7 +493,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=8655926263&entry.1475012068=JAGRUTI%20MUNDADA%20%2816716%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>20</td>
                 <td><a href="tel:+919323890118" style="color:#007bff;" onclick="this.style.color='green'">JAYSHREE SOMANI (9732) </a><br/><small style="color:#999">9323890118</small></td>
                 <td>
@@ -573,7 +515,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9323890118&entry.1475012068=JAYSHREE%20SOMANI%20%289732%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>21</td>
                 <td><a href="tel:+917350053633" style="color:#007bff;" onclick="this.style.color='green'">KAPIL SOMANI (16743) </a><br/><small style="color:#999">7350053633</small></td>
                 <td>
@@ -595,7 +537,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=7350053633&entry.1475012068=KAPIL%20SOMANI%20%2816743%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>22</td>
                 <td><a href="tel:+919930629945" style="color:#007bff;" onclick="this.style.color='green'">KARTIK BHATTAD (16229) </a><br/><small style="color:#999">9930629945</small></td>
                 <td>
@@ -617,7 +559,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9930629945&entry.1475012068=KARTIK%20BHATTAD%20%2816229%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>23</td>
                 <td><a href="tel:+919820534913" style="color:#007bff;" onclick="this.style.color='green'">KHUSHBOO ASHOK (15746) </a><br/><small style="color:#999">9820534913</small></td>
                 <td>
@@ -639,7 +581,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9820534913&entry.1475012068=KHUSHBOO%20ASHOK%20%2815746%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>24</td>
                 <td><a href="tel:+919920545511" style="color:#007bff;" onclick="this.style.color='green'">KRITIN MOONDRA (12027) </a><br/><small style="color:#999">9920545511</small></td>
                 <td>
@@ -661,7 +603,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9920545511&entry.1475012068=KRITIN%20MOONDRA%20%2812027%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>25</td>
                 <td><a href="tel:+919687589631" style="color:#007bff;" onclick="this.style.color='green'">LAXMINIWAS KARWA (15880) </a><br/><small style="color:#999">9687589631</small></td>
                 <td>
@@ -683,7 +625,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9687589631&entry.1475012068=LAXMINIWAS%20KARWA%20%2815880%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>26</td>
                 <td><a href="tel:+919422002377" style="color:#007bff;" onclick="this.style.color='green'">MAHESH BANGAD (9560) </a><br/><small style="color:#999">9422002377</small></td>
                 <td>
@@ -705,7 +647,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9422002377&entry.1475012068=MAHESH%20BANGAD%20%289560%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>27</td>
                 <td><a href="tel:+919029868996" style="color:#007bff;" onclick="this.style.color='green'">MANISHA KABRA (9174) </a><br/><small style="color:#999">9029868996</small></td>
                 <td>
@@ -727,7 +669,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9029868996&entry.1475012068=MANISHA%20KABRA%20%289174%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>28</td>
                 <td><a href="tel:+919324611978" style="color:#007bff;" onclick="this.style.color='green'">MAYANK DARAK (10938) </a><br/><small style="color:#999">9324611978</small></td>
                 <td>
@@ -749,7 +691,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9324611978&entry.1475012068=MAYANK%20DARAK%20%2810938%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>29</td>
                 <td><a href="tel:+918793263066" style="color:#007bff;" onclick="this.style.color='green'">MEHUL KABRA (16681) </a><br/><small style="color:#999">8793263066</small></td>
                 <td>
@@ -771,7 +713,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=8793263066&entry.1475012068=MEHUL%20KABRA%20%2816681%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>30</td>
                 <td><a href="tel:+919702066652" style="color:#007bff;" onclick="this.style.color='green'">MRIGYA RATHI (16957) </a><br/><small style="color:#999">9702066652</small></td>
                 <td>
@@ -793,7 +735,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9702066652&entry.1475012068=MRIGYA%20RATHI%20%2816957%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>31</td>
                 <td><a href="tel:+919820028137" style="color:#007bff;" onclick="this.style.color='green'">NAVEEN SABOO (15422) </a><br/><small style="color:#999">9820028137</small></td>
                 <td>
@@ -815,7 +757,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9820028137&entry.1475012068=NAVEEN%20SABOO%20%2815422%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>32</td>
                 <td><a href="tel:+919820310617" style="color:#007bff;" onclick="this.style.color='green'">NIHARIKA MAHESHWARI (9332) </a><br/><small style="color:#999">9820310617</small></td>
                 <td>
@@ -837,7 +779,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9820310617&entry.1475012068=NIHARIKA%20MAHESHWARI%20%289332%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>33</td>
                 <td><a href="tel:+919850055369" style="color:#007bff;" onclick="this.style.color='green'">NIKITA BAHETI (12106) </a><br/><small style="color:#999">9850055369</small></td>
                 <td>
@@ -859,7 +801,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9850055369&entry.1475012068=NIKITA%20BAHETI%20%2812106%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>34</td>
                 <td><a href="tel:+919822099432" style="color:#007bff;" onclick="this.style.color='green'">NILESH POPHLIA (9741) </a><br/><small style="color:#999">9822099432</small></td>
                 <td>
@@ -881,7 +823,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9822099432&entry.1475012068=NILESH%20POPHLIA%20%289741%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>35</td>
                 <td><a href="tel:+919820450521" style="color:#007bff;" onclick="this.style.color='green'">PALAK BAHETI (12145) </a><br/><small style="color:#999">9820450521</small></td>
                 <td>
@@ -903,7 +845,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9820450521&entry.1475012068=PALAK%20BAHETI%20%2812145%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>36</td>
                 <td><a href="tel:+919820343225" style="color:#007bff;" onclick="this.style.color='green'">PIYUSHI KANKANI (16641) </a><br/><small style="color:#999">9820343225</small></td>
                 <td>
@@ -925,7 +867,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9820343225&entry.1475012068=PIYUSHI%20KANKANI%20%2816641%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>37</td>
                 <td><a href="tel:+919833041537" style="color:#007bff;" onclick="this.style.color='green'">PRACHUR BAHETI (16114) </a><br/><small style="color:#999">9833041537</small></td>
                 <td>
@@ -947,7 +889,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9833041537&entry.1475012068=PRACHUR%20BAHETI%20%2816114%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>38</td>
                 <td><a href="tel:+919821310561" style="color:#007bff;" onclick="this.style.color='green'">PRATHA MALANI (9630) </a><br/><small style="color:#999">9821310561</small></td>
                 <td>
@@ -969,7 +911,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9821310561&entry.1475012068=PRATHA%20MALANI%20%289630%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>39</td>
                 <td><a href="tel:+919752091076" style="color:#007bff;" onclick="this.style.color='green'">PRAVI CHHAPARWAL (15456) </a><br/><small style="color:#999">9752091076</small></td>
                 <td>
@@ -991,7 +933,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9752091076&entry.1475012068=PRAVI%20CHHAPARWAL%20%2815456%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>40</td>
                 <td><a href="tel:+917700951057" style="color:#007bff;" onclick="this.style.color='green'">PRIYANKA DHOOT (12070) </a><br/><small style="color:#999">7700951057</small></td>
                 <td>
@@ -1013,7 +955,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=7700951057&entry.1475012068=PRIYANKA%20DHOOT%20%2812070%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>41</td>
                 <td><a href="tel:+919820056784" style="color:#007bff;" onclick="this.style.color='green'">RACHIT TOSHNIWAL (15662) </a><br/><small style="color:#999">9820056784</small></td>
                 <td>
@@ -1035,7 +977,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9820056784&entry.1475012068=RACHIT%20TOSHNIWAL%20%2815662%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>42</td>
                 <td><a href="tel:+918669759195" style="color:#007bff;" onclick="this.style.color='green'">RADHIKA MANUDHANE (15738) </a><br/><small style="color:#999">8669759195</small></td>
                 <td>
@@ -1057,7 +999,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=8669759195&entry.1475012068=RADHIKA%20MANUDHANE%20%2815738%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>43</td>
                 <td><a href="tel:+917003062622" style="color:#007bff;" onclick="this.style.color='green'">RAHUL TUWANI (14341) </a><br/><small style="color:#999">7003062622</small></td>
                 <td>
@@ -1079,7 +1021,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=7003062622&entry.1475012068=RAHUL%20TUWANI%20%2814341%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>44</td>
                 <td><a href="tel:+919819766841" style="color:#007bff;" onclick="this.style.color='green'">RASHI PARTANI (16738) </a><br/><small style="color:#999">9819766841</small></td>
                 <td>
@@ -1101,7 +1043,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9819766841&entry.1475012068=RASHI%20PARTANI%20%2816738%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>45</td>
                 <td><a href="tel:+919850990772" style="color:#007bff;" onclick="this.style.color='green'">RISHI MUNDADA (16667) </a><br/><small style="color:#999">9850990772</small></td>
                 <td>
@@ -1123,7 +1065,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9850990772&entry.1475012068=RISHI%20MUNDADA%20%2816667%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>46</td>
                 <td><a href="tel:+919820505137" style="color:#007bff;" onclick="this.style.color='green'">ROHIT TAPARIA (12066) </a><br/><small style="color:#999">9820505137</small></td>
                 <td>
@@ -1145,7 +1087,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9820505137&entry.1475012068=ROHIT%20TAPARIA%20%2812066%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>47</td>
                 <td><a href="tel:+919869011137" style="color:#007bff;" onclick="this.style.color='green'">RUPALI KABRA (14282) </a><br/><small style="color:#999">9869011137</small></td>
                 <td>
@@ -1167,7 +1109,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9869011137&entry.1475012068=RUPALI%20KABRA%20%2814282%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>48</td>
                 <td><a href="tel:+917303067632" style="color:#007bff;" onclick="this.style.color='green'">SALONI KAPILANSH (16706) </a><br/><small style="color:#999">7303067632</small></td>
                 <td>
@@ -1189,7 +1131,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=7303067632&entry.1475012068=SALONI%20KAPILANSH%20%2816706%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>49</td>
                 <td><a href="tel:+919422163700" style="color:#007bff;" onclick="this.style.color='green'">SANKALP ASAVA (9663) </a><br/><small style="color:#999">9422163700</small></td>
                 <td>
@@ -1211,7 +1153,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9422163700&entry.1475012068=SANKALP%20ASAVA%20%289663%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>50</td>
                 <td><a href="tel:+919867554481" style="color:#007bff;" onclick="this.style.color='green'">SAVITA LAKHOTIA (9904) </a><br/><small style="color:#999">9867554481</small></td>
                 <td>
@@ -1233,7 +1175,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9867554481&entry.1475012068=SAVITA%20LAKHOTIA%20%289904%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>51</td>
                 <td><a href="tel:+919423394711" style="color:#007bff;" onclick="this.style.color='green'">SHIVAM INDANI (16733) </a><br/><small style="color:#999">9423394711</small></td>
                 <td>
@@ -1255,7 +1197,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9423394711&entry.1475012068=SHIVAM%20INDANI%20%2816733%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>52</td>
                 <td><a href="tel:+917506096741" style="color:#007bff;" onclick="this.style.color='green'">SHREYA MAHESHWARI (15817) </a><br/><small style="color:#999">7506096741</small></td>
                 <td>
@@ -1277,7 +1219,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=7506096741&entry.1475012068=SHREYA%20MAHESHWARI%20%2815817%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>53</td>
                 <td><a href="tel:+919820190165" style="color:#007bff;" onclick="this.style.color='green'">SHRUTI MOONDRA (16891) </a><br/><small style="color:#999">9820190165</small></td>
                 <td>
@@ -1299,7 +1241,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9820190165&entry.1475012068=SHRUTI%20MOONDRA%20%2816891%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>54</td>
                 <td><a href="tel:+919833213109" style="color:#007bff;" onclick="this.style.color='green'">SHUBHAM BAGRI (16729) </a><br/><small style="color:#999">9833213109</small></td>
                 <td>
@@ -1321,7 +1263,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9833213109&entry.1475012068=SHUBHAM%20BAGRI%20%2816729%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>55</td>
                 <td><a href="tel:+919819392595" style="color:#007bff;" onclick="this.style.color='green'">SHYAM MOHTA (11051) </a><br/><small style="color:#999">9819392595</small></td>
                 <td>
@@ -1343,7 +1285,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9819392595&entry.1475012068=SHYAM%20MOHTA%20%2811051%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>56</td>
                 <td><a href="tel:+919821040728" style="color:#007bff;" onclick="this.style.color='green'">SIMRAN KASAT (16126) </a><br/><small style="color:#999">9821040728</small></td>
                 <td>
@@ -1365,7 +1307,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9821040728&entry.1475012068=SIMRAN%20KASAT%20%2816126%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>57</td>
                 <td><a href="tel:+919028811694" style="color:#007bff;" onclick="this.style.color='green'">SURAJ NOGJA (16992) </a><br/><small style="color:#999">9028811694</small></td>
                 <td>
@@ -1387,7 +1329,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9028811694&entry.1475012068=SURAJ%20NOGJA%20%2816992%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>58</td>
                 <td><a href="tel:+919820741121" style="color:#007bff;" onclick="this.style.color='green'">SUVIDHA MUNDHRA (16082) </a><br/><small style="color:#999">9820741121</small></td>
                 <td>
@@ -1409,7 +1351,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9820741121&entry.1475012068=SUVIDHA%20MUNDHRA%20%2816082%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>59</td>
                 <td><a href="tel:+919820609929" style="color:#007bff;" onclick="this.style.color='green'">TULSI JAJOO (15843) </a><br/><small style="color:#999">9820609929</small></td>
                 <td>
@@ -1431,7 +1373,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9820609929&entry.1475012068=TULSI%20JAJOO%20%2815843%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>60</td>
                 <td><a href="tel:+919869235539" style="color:#007bff;" onclick="this.style.color='green'">VAIBHAV GATTANI (16963) </a><br/><small style="color:#999">9869235539</small></td>
                 <td>
@@ -1453,7 +1395,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9869235539&entry.1475012068=VAIBHAV%20GATTANI%20%2816963%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>61</td>
                 <td><a href="tel:+919975056750" style="color:#007bff;" onclick="this.style.color='green'">VANDITA SOMANI (10937) </a><br/><small style="color:#999">9975056750</small></td>
                 <td>
@@ -1475,7 +1417,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9975056750&entry.1475012068=VANDITA%20SOMANI%20%2810937%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>62</td>
                 <td><a href="tel:+919833001587" style="color:#007bff;" onclick="this.style.color='green'">VIDHI MALL (15862) </a><br/><small style="color:#999">9833001587</small></td>
                 <td>
@@ -1497,7 +1439,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9833001587&entry.1475012068=VIDHI%20MALL%20%2815862%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>63</td>
                 <td><a href="tel:+918082263532" style="color:#007bff;" onclick="this.style.color='green'">VISHAL DHOOT (16850) </a><br/><small style="color:#999">8082263532</small></td>
                 <td>
@@ -1519,7 +1461,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=8082263532&entry.1475012068=VISHAL%20DHOOT%20%2816850%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>64</td>
                 <td><a href="tel:+919028912499" style="color:#007bff;" onclick="this.style.color='green'">VIVEK JHANWAR (16791) </a><br/><small style="color:#999">9028912499</small></td>
                 <td>
@@ -1541,7 +1483,7 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9028912499&entry.1475012068=VIVEK%20JHANWAR%20%2816791%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>65</td>
                 <td><a href="tel:+919371020773" style="color:#007bff;" onclick="this.style.color='green'">YASH MUCHHAL (16973) </a><br/><small style="color:#999">9371020773</small></td>
                 <td>
@@ -1563,215 +1505,21 @@
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Kanta%20Malpani&entry.1585817478=9371020773&entry.1475012068=YASH%20MUCHHAL%20%2816973%29%20&entry.410440017=Meet n Greet - 2" target="_blank">Log Call</a></td>
             </tr>
         
-                </tbody>
-            </table>
-        </div>
+      </tbody>
+    </table>
+  </div>
 
-        <div id="noResults" class="no-results">No matching results found</div>
+  <div id="noResults" class="no-results">No matching results found</div>
 
-        <script>
-        // Helper: escape regex special chars
-        function escapeRegex(s) {
-            return s.replace(/[.*+?^${}()|[\]\\]/g, '\\\\$&');
-        }
+  <!-- Floating Action Bar -->
+  <div class="fab-bar" aria-hidden="false" id="floatingBar">
+    <button class="fab fab-top" title="Go to Top" onclick="goToTop()">↑</button>
+    <button id="filterNotCalledBtn" class="fab fab-filter" title="Only show Not Called" onclick="toggleStatusFilter('not called')">🔴</button>
+    <button id="filterWhatsAppBtn" class="fab fab-filter" title="Only show WhatsApp" onclick="toggleStatusFilter('whatsapp')">💬</button>
+    <button class="fab fab-filter" title="Clear search & highlights" onclick="clearHighlightsAndSearch()">✖</button>
+  </div>
 
-        // Save original innerHTML of each td once (so we can restore)
-        (function cacheCellOriginals() {
-            const tds = document.querySelectorAll('#dataTable tbody td');
-            tds.forEach(td => {
-                if (!td.dataset.original) td.dataset.original = td.innerHTML;
-            });
-        })();
-
-        // Highlight matches in text nodes under an element, preserving tags (links etc)
-        function highlightUnderElement(el, term) {
-            if (!term) return;
-            const regex = new RegExp(escapeRegex(term), 'gi');
-
-            function walk(node) {
-                // We do not descend into script/style tags
-                if (node.nodeType === Node.TEXT_NODE) {
-                    const text = node.nodeValue;
-                    const match = regex.exec(text);
-                    if (match) {
-                        regex.lastIndex = 0; // reset for subsequent calls
-                        const frag = document.createDocumentFragment();
-                        let lastIndex = 0;
-                        let m;
-                        while ((m = regex.exec(text)) !== null) {
-                            const before = text.slice(lastIndex, m.index);
-                            if (before) frag.appendChild(document.createTextNode(before));
-                            const mark = document.createElement('mark');
-                            mark.textContent = m[0];
-                            frag.appendChild(mark);
-                            lastIndex = m.index + m[0].length;
-                        }
-                        const after = text.slice(lastIndex);
-                        if (after) frag.appendChild(document.createTextNode(after));
-                        node.parentNode.replaceChild(frag, node);
-                    }
-                } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName.toLowerCase() !== 'script' && node.tagName.toLowerCase() !== 'style') {
-                    // iterate over a snapshot because childNodes will be mutated
-                    const children = Array.from(node.childNodes);
-                    for (const child of children) walk(child);
-                }
-            }
-
-            walk(el);
-        }
-
-        // Global active status filter (null = no status filter)
-let activeStatusFilter = null;
-
-// Helper: normalize status text for comparison
-function normStatusText(s) {
-  if (!s) return '';
-  return s.toString().trim().toLowerCase();
-}
-
-/* Toggle status filter: same button toggles on/off */
-function toggleStatusFilter(statusKey) {
-  // If same -> clear, else set
-  if (activeStatusFilter === statusKey) {
-    activeStatusFilter = null;
-  } else {
-    activeStatusFilter = statusKey;
-  }
-  // visually update buttons
-  document.getElementById('filterNotCalledBtn').classList.toggle('active', activeStatusFilter === 'not called');
-  document.getElementById('filterWhatsAppBtn').classList.toggle('active', activeStatusFilter === 'whatsapp');
-
-  // run searchTable to apply both text + status filtering
-  searchTable();
-}
-
-/* Clear highlights + clear active filters + clear search input (if present) */
-function clearHighlightsAndSearch() {
-  activeStatusFilter = null;
-  document.getElementById('filterNotCalledBtn').classList.remove('active');
-  document.getElementById('filterWhatsAppBtn').classList.remove('active');
-
-  // clear search box if present
-  const input = document.getElementById('searchInput');
-  if (input) {
-    input.value = '';
-  }
-
-  // Restore original HTML for all tds
-  const tds = document.querySelectorAll('#dataTable tbody td');
-  tds.forEach(td => {
-    if (td.dataset && td.dataset.original !== undefined) {
-      td.innerHTML = td.dataset.original;
-    }
-  });
-
-  // Show all rows
-  const rows = document.querySelectorAll('#dataTable tbody tr');
-  rows.forEach(r => r.style.display = '');
-
-  // hide noResults
-  const nr = document.getElementById('noResults');
-  if (nr) nr.style.display = 'none';
-}
-
-/* Simple go-to-top */
-function goToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-/* -------------------------
-   Updated searchTable() that respects activeStatusFilter
-   Replace your current searchTable OR merge this logic in.
-   Assumes: you cache td.dataset.original elsewhere (you already do).
-   ------------------------- */
-function searchTable() {
-  const input = document.getElementById('searchInput');
-  const filter = (input && input.value || '').trim().toLowerCase();
-  const rows = document.querySelectorAll('#dataTable tbody tr');
-  let foundAny = false;
-
-  rows.forEach(row => {
-    // Restore original HTML (clear previous highlights)
-    const tds = row.querySelectorAll('td');
-    tds.forEach(td => {
-      if (td.dataset && td.dataset.original !== undefined) {
-        td.innerHTML = td.dataset.original;
-      }
-    });
-
-    // Text-based match
-    const rowText = (row.textContent || '').toLowerCase();
-    const textMatch = !filter || rowText.includes(filter);
-
-    // Status-based match
-    // We expect status is in a specific column; to be robust we scan the row for a status text.
-    let statusMatch = true;
-    if (activeStatusFilter) {
-      // scan cells for a matching status string (badge text or raw text)
-      statusMatch = false;
-      const statusCandidates = Array.from(row.querySelectorAll('td')).map(td => (td.textContent || '').toLowerCase());
-      for (const cellText of statusCandidates) {
-        if (activeStatusFilter === 'not called') {
-          if (cellText.includes('not called')) { statusMatch = true; break; }
-        } else if (activeStatusFilter === 'whatsapp') {
-          if (cellText.includes('whatsapp')) { statusMatch = true; break; }
-        } else {
-          // custom keys can be added here
-          if (cellText.includes(activeStatusFilter)) { statusMatch = true; break; }
-        }
-      }
-    }
-
-    const isMatch = textMatch && statusMatch;
-
-    row.style.display = isMatch ? '' : 'none';
-
-    // Highlight term when visible & filter exists
-    if (isMatch && filter) {
-      tds.forEach(td => {
-        if ((td.textContent || '').toLowerCase().includes(filter)) {
-          // reuse your existing highlightUnderElement function (defined earlier)
-          highlightUnderElement(td, filter);
-        }
-      });
-    }
-
-    if (isMatch) foundAny = true;
-  });
-
-  const nr = document.getElementById('noResults');
-  if (nr) nr.style.display = (foundAny || !filter ? 'none' : 'block');
-}
-
-
-        // Ensure originals are cached after page loads rows (for dynamic cases)
-        window.addEventListener('DOMContentLoaded', function() {
-            const tds = document.querySelectorAll('#dataTable tbody td');
-            tds.forEach(td => { if (!td.dataset.original) td.dataset.original = td.innerHTML; });
-        });
-        </script>
-
-        <!-- Floating Action Bar -->
-<div class="fab-bar" aria-hidden="false" id="floatingBar">
-  <!-- Go to Top -->
-  <button class="fab fab-top" title="Go to Top" onclick="goToTop()">↑</button>
-
-  <!-- Filter: Only Not Called -->
-  <button id="filterNotCalledBtn" class="fab fab-filter" title="Only show Not Called" onclick="toggleStatusFilter('not called')">
-    🔴
-  </button>
-
-  <!-- Filter: Only WhatsApp -->
-  <button id="filterWhatsAppBtn" class="fab fab-filter" title="Only show WhatsApp" onclick="toggleStatusFilter('whatsapp')">
-    💬
-  </button>
-
-  <!-- Clear Highlights / Clear Filters -->
-  <button class="fab fab-filter" title="Clear search & highlights" onclick="clearHighlightsAndSearch()">
-    ✖
-  </button>
-</div>
-
-    </body>
-    </html>
-    
+  <!-- Link to external script (relative path) -->
+  <script src="scripts.js"></script>
+</body>
+</html>
