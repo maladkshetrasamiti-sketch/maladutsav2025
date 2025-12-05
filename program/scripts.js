@@ -1,4 +1,4 @@
-/* ====== scripts.js (generated) ====== */
+/* ====== scripts.js (patched: close dropdown on filter click + touch support) ====== */
 
 /* Helper: escape regex special chars */
 function escapeRegex(s) {
@@ -216,7 +216,10 @@ function toggleStatusFilterFromToolbar(statusKey) {
   if (typeof searchTable === 'function') searchTable();
   else applyStatusFilterDirectly();
   setTimeout(updateStatusCounts, 50);
-  toggleStatusDropdown(false);
+
+  // Ensure dropdown closes when a toolbar filter is clicked
+  // (this was added to ensure mobile taps close the dropdown)
+  try { toggleStatusDropdown(false); } catch(e){}
 }
 
 function applyStatusFilterDirectly() {
@@ -262,9 +265,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const tb = table.querySelector('tbody') || table;
     observer.observe(tb, { childList: true, subtree: true, characterData: true });
   })();
+
+  // --- NEW: ensure dropdown closes when a filter inside the dropdown is tapped/clicked ---
+  (function dropdownInnerClose() {
+    const panel = document.getElementById('statusDropdownPanel');
+    if (!panel) return;
+    // Delegated click handler: close when clicking on a .status-filter-btn (or inside it)
+    panel.addEventListener('click', function(evt) {
+      const btn = evt.target.closest && evt.target.closest('.status-filter-btn');
+      if (btn) {
+        // small defer to ensure any filter toggling runs first
+        setTimeout(function() { toggleStatusDropdown(false); }, 10);
+      }
+    }, { passive: true });
+
+    // Touchstart fallback for some mobile browsers
+    panel.addEventListener('touchstart', function(evt) {
+      const btn = evt.target.closest && evt.target.closest('.status-filter-btn');
+      if (btn) {
+        setTimeout(function() { toggleStatusDropdown(false); }, 10);
+      }
+    }, { passive: true });
+  })();
+
+  // Defensive global listener (in case panel reference not present at DOMContentLoaded)
+  // This catches filter clicks even if panel was added later dynamically.
+  document.addEventListener('click', function(e) {
+    const panel = document.getElementById('statusDropdownPanel');
+    if (!panel) return;
+    const clickedInside = panel.contains(e.target);
+    if (clickedInside) {
+      const btn = e.target.closest && e.target.closest('.status-filter-btn');
+      if (btn) {
+        setTimeout(function() { toggleStatusDropdown(false); }, 10);
+      }
+    }
+  }, { passive: true });
 });
 
-// Dropdown toggle for compact toolbar
+/* Dropdown toggle for compact toolbar */
 function toggleStatusDropdown(force) {
   const panel = document.getElementById('statusDropdownPanel');
   const toggle = document.getElementById('statusDropdownToggle');
