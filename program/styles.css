@@ -1,0 +1,199 @@
+/* ====== styles.css (generated) ====== */
+body { font-family: Arial, sans-serif; margin: 20px; background: #f8f9fa; }
+h2 { text-align: center; }
+.top-note { font-family: Arial, sans-serif; color: #333; line-height: 1.4; padding: 8px; max-width: 100%; box-sizing: border-box; font-size: 14px; background: #fff; border-radius: 8px; }
+.table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; background: #fff; padding: 8px; border-radius: 8px; box-shadow: 0 0 6px rgba(0,0,0,0.06); }
+table { width: 100%; border-collapse: collapse; margin-top: 12px; table-layout: auto; white-space: nowrap; }
+th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
+th { background-color: #f2f2f2; position: sticky; top: 0; z-index: 1; }
+a { color: #007bff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+#searchInput {
+    width: 100%;
+    max-width: 560px;
+    font-size: 1em;
+    padding: 10px 14px;
+    border-radius: 25px;
+    border: 2px solid #007bff;
+    margin: 12px auto;
+    display: block;
+    box-sizing: border-box;
+    background: white;
+}
+mark { background: yellow; color: black; font-weight: bold; padding: 0; }
+.no-results { display: none; text-align: center; color: #777; margin-top: 12px; }
+
+@media (max-width: 600px) {
+    th, td { padding: 6px 8px; font-size: 0.95em; }
+}
+
+/* Badges */
+.badge {
+    padding: 3px 10px;
+    border-radius: 12px;
+    color: white;
+    font-size: 12px;
+    display: inline-block;
+    font-weight: 600;
+}
+.badge-wa { background: #25D366; }          /* WhatsApp Green */
+.badge-confirmed { background: #007bff; }   /* Blue */
+.badge-maybe { background: #f0ad4e; }       /* Amber */
+.badge-busy { background: #ff9800; }        /* Orange */
+.badge-nr { background: #dc3545; }          /* Red */
+.badge-no { background: #6c757d; }          /* Grey */
+.badge-notcalled { background: #b30000; }   /* Dark Red */
+
+/* Floating Action Bar (bottom-right) */
+.fab-bar {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 9999;
+  align-items: center;
+}
+
+/* Individual circular buttons */
+.fab {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 0;
+  font-size: 18px;
+  transition: transform .12s ease, box-shadow .12s ease;
+  padding: 0;
+}
+.fab:active { transform: scale(.96); }
+.fab:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.14); }
+
+/* colored buttons for filters */
+.fab-filter { background: #f8f9fa; color: #333; }
+.fab-filter.active { box-shadow: 0 8px 18px rgba(0,0,0,0.18); transform: translateY(-2px); }
+
+/* larger primary button for 'Go to Top' */
+.fab-top { background: #007bff; color: white; width:56px; height:56px; font-weight:700; }
+
+/* Status filter toolbar */
+.status-toolbar {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin: 10px 0;
+  padding: 6px;
+}
+.status-filter-btn {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:20px;
+  background:#fff;
+  box-shadow:0 4px 10px rgba(0,0,0,0.06);
+  cursor:pointer;
+  border:1px solid rgba(0,0,0,0.04);
+  font-weight:600;
+  font-size:13px;
+}
+.status-filter-btn .count {
+  min-width:26px;
+  text-align:center;
+  padding:2px 6px;
+  border-radius:12px;
+  font-size:12px;
+  color:#222;
+  background:rgba(0,0,0,0.05);
+}
+.status-filter-btn.active {
+  box-shadow:0 8px 18px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+  border-color: rgba(0,0,0,0.12);
+}
+.status-toolbar .legend { font-size:13px; color:#444; margin-left:8px; }
+@media (max-width:640px){
+  .status-filter-btn { padding:8px 10px; font-size:13px; }
+}
+/* Compact dropdown toolbar */
+.status-dropdown {
+  position: relative;
+  display: block;
+  margin: 8px 0;
+}
+
+/* Toggle button */
+.status-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* small total shown inside toggle */
+.status-dropdown-toggle .mini-total {
+  margin-left: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #555;
+  background: rgba(0,0,0,0.04);
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+/* Panel (hidden by default) */
+.status-dropdown-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 1100;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  overflow: hidden;
+  opacity: 0;
+  transform-origin: top center;
+  transform: translateY(-6px) scaleY(0.98);
+  transition: opacity 180ms ease, transform 180ms ease;
+  max-height: 0;
+}
+
+/* open state */
+.status-dropdown-panel.open {
+  opacity: 1;
+  transform: translateY(0) scaleY(1);
+  max-height: 400px; /* enough for toolbar contents */
+}
+
+/* panel inner padding and scroll if overflow */
+.status-dropdown-panel .status-toolbar {
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 360px;
+}
+
+/* On small screens make panel full width (it already is), and pin to top if you want */
+@media (max-width: 640px) {
+  .status-dropdown-panel {
+    left: 0;
+    right: 0;
+    top: calc(100% + 6px);
+    border-radius: 8px;
+  }
+  .status-dropdown-toggle { width: 100%; justify-content: space-between; }
+}

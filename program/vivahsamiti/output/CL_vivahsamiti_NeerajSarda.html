@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <title>Calling List - Neeraj Sarda</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Link to external stylesheet (relative to HTML file) -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../scripts.js"></script>
 </head>
 <body>
   <img src="https://maladkshetrasamiti-sketch.github.io/maladutsav2025/program\vivahsamiti\/MPM_logo.png" alt="Malad Kshetra Samiti Logo" style="display:block; margin-left:auto; margin-right:auto; width:100px; height:auto;">
@@ -24,41 +24,58 @@
 
   <input id="searchInput" type="search" placeholder="🔍 Search by Name, Number, Registration, etc..." oninput="searchTable()" />
 
-  <!-- Status toolbar -->
-  <div class="status-toolbar" id="statusToolbar" aria-hidden="false">
-    <div class="status-filter-btn" data-status-key="not called" id="btn-notcalled" onclick="toggleStatusFilterFromToolbar('not called')">
-      <span class="badge badge-notcalled">Not Called</span>
-      <span class="count" id="count-notcalled">0</span>
-    </div>
-    <div class="status-filter-btn" data-status-key="whatsapp" id="btn-whatsapp" onclick="toggleStatusFilterFromToolbar('whatsapp')">
-      <span class="badge badge-wa">WhatsApp</span>
-      <span class="count" id="count-whatsapp">0</span>
-    </div>
-    <div class="status-filter-btn" data-status-key="confirmed" id="btn-confirmed" onclick="toggleStatusFilterFromToolbar('confirmed')">
-      <span class="badge badge-confirmed">Confirmed</span>
-      <span class="count" id="count-confirmed">0</span>
-    </div>
-    <div class="status-filter-btn" data-status-key="maybe" id="btn-maybe" onclick="toggleStatusFilterFromToolbar('maybe')">
-      <span class="badge badge-maybe">Maybe</span>
-      <span class="count" id="count-maybe">0</span>
-    </div>
-    <div class="status-filter-btn" data-status-key="busy" id="btn-busy" onclick="toggleStatusFilterFromToolbar('busy')">
-      <span class="badge badge-busy">Phone Busy</span>
-      <span class="count" id="count-busy">0</span>
-    </div>
-    <div class="status-filter-btn" data-status-key="not reachable" id="btn-nr" onclick="toggleStatusFilterFromToolbar('not reachable')">
-      <span class="badge badge-nr">Not Reachable</span>
-      <span class="count" id="count-nr">0</span>
-    </div>
-    <div class="status-filter-btn" data-status-key="not coming" id="btn-no" onclick="toggleStatusFilterFromToolbar('not coming')">
-      <span class="badge badge-no">Not Coming</span>
-      <span class="count" id="count-no">0</span>
-    </div>
+  <!-- Compact dropdown toolbar (replace previous toolbar block) -->
+<div class="status-dropdown" id="statusDropdownWrap">
+  <button id="statusDropdownToggle" class="status-dropdown-toggle" 
+          aria-expanded="false" aria-controls="statusDropdownPanel" onclick="toggleStatusDropdown()">
+    Filters ▾
+    <span class="mini-total" id="miniTotal">0 / 0</span>
+  </button>
 
-    <div class="legend" style="margin-left:auto;">
-      <strong>Total:</strong> <span id="totalVisible">0</span> visible / <span id="totalAll">0</span> total
+  <div id="statusDropdownPanel" class="status-dropdown-panel" role="region" aria-hidden="true">
+    <div class="status-toolbar" id="statusToolbar" aria-hidden="false">
+      <div class="status-filter-btn" data-status-key="not called" id="btn-notcalled" onclick="toggleStatusFilterFromToolbar('not called')">
+        <span class="badge badge-notcalled">Not Called</span>
+        <span class="count" id="count-notcalled">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="whatsapp" id="btn-whatsapp" onclick="toggleStatusFilterFromToolbar('whatsapp')">
+        <span class="badge badge-wa">WhatsApp</span>
+        <span class="count" id="count-whatsapp">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="confirmed" id="btn-confirmed" onclick="toggleStatusFilterFromToolbar('confirmed')">
+        <span class="badge badge-confirmed">Confirmed</span>
+        <span class="count" id="count-confirmed">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="maybe" id="btn-maybe" onclick="toggleStatusFilterFromToolbar('maybe')">
+        <span class="badge badge-maybe">Maybe</span>
+        <span class="count" id="count-maybe">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="busy" id="btn-busy" onclick="toggleStatusFilterFromToolbar('busy')">
+        <span class="badge badge-busy">Phone Busy</span>
+        <span class="count" id="count-busy">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="not reachable" id="btn-nr" onclick="toggleStatusFilterFromToolbar('not reachable')">
+        <span class="badge badge-nr">Not Reachable</span>
+        <span class="count" id="count-nr">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="not coming" id="btn-no" onclick="toggleStatusFilterFromToolbar('not coming')">
+        <span class="badge badge-no">Not Coming</span>
+        <span class="count" id="count-no">0</span>
+      </div>
+
+      <div class="legend" style="margin-left:auto;">
+        <strong>Total:</strong> <span id="totalVisible">0</span> visible / <span id="totalAll">0</span> total
+      </div>
     </div>
   </div>
+</div>
+
 
   <div class="table-wrapper">
     <table id="dataTable">
