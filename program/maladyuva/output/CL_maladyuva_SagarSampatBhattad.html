@@ -1,76 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Calling List - Sagar Sampat Bhattad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../scripts.js"></script>
+</head>
+<body>
+  <img src="https://maladkshetrasamiti-sketch.github.io/maladutsav2025/program/MPM_logo.png" alt="Malad Kshetra Samiti Logo" style="display:block; margin-left:auto; margin-right:auto; width:100px; height:auto;">
+  <h2>Calling List - Sagar Sampat Bhattad</h2>
+  <div class="top-note">
+    <p style="font-weight: bold; margin-bottom: 6px; font-size: 15px;">
+      कृपया निम्नलिखित सरल चरणों का पालन करें:
+    </p>
+    <ul style="padding-left: 18px; margin: 0; font-size: 12px;">
+      <li><strong>Name</strong> पर क्लिक करें — कॉल अपने आप डायल हो जाएगी</li>
+      <li><strong>SMS</strong> पर क्लिक करें — आपके मोबाइल से आमंत्रण संदेश जाएगा</li>
+      <li><strong>WhatsApp</strong> पर क्लिक करें — व्हाट्सएप खुलेगा और संदेश अपने आप पोस्ट हो जाएगा</li>
+      <li>आप समाजबंधु को <strong>Sidhivinayak</strong> की जानकारी दें</li>
+    </ul>
+  </div>
 
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Calling List - Sagar Sampat Bhattad</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            body { font-family: Arial, sans-serif; margin: 20px; background: #f8f9fa; }
-            h2 { text-align: center; }
-            .top-note { font-family: Arial, sans-serif; color: #333; line-height: 1.4; padding: 8px; max-width: 100%; box-sizing: border-box; font-size: 14px; background: #fff; border-radius: 8px; }
-            table { width: 100%; border-collapse: collapse; margin-top: 12px; table-layout: auto; white-space: nowrap; }
-            th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
-            th { background-color: #f2f2f2; position: sticky; top: 0; z-index: 1; }
-            a { color: #007bff; text-decoration: none; }
-            a:hover { text-decoration: underline; }
-            .table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; background: #fff; padding: 8px; border-radius: 8px; box-shadow: 0 0 6px rgba(0,0,0,0.06); }
-            #searchInput {
-                width: 100%;
-                max-width: 560px;
-                font-size: 1em;
-                padding: 10px 14px;
-                border-radius: 25px;
-                border: 2px solid #007bff;
-                margin: 12px auto;
-                display: block;
-                box-sizing: border-box;
-                background: white;
-            }
-            mark { background: yellow; color: black; font-weight: bold; padding: 0; }
-            .no-results { display: none; text-align: center; color: #777; margin-top: 12px; }
-            @media (max-width: 600px) {
-                th, td { padding: 6px 8px; font-size: 0.95em; }
-            }
-        </style>
-    </head>
-    <body>
-        <img src="https://maladkshetrasamiti-sketch.github.io/maladutsav2025/program/MPM_logo.png" alt="Malad Kshetra Samiti Logo" style="display:block; margin-left:auto; margin-right:auto; width:100px; height:auto;">
-        <h2>Calling List - Sagar Sampat Bhattad</h2>
-        <div class="top-note">
-            <p style="font-weight: bold; margin-bottom: 6px; font-size: 15px;">
-                कृपया निम्नलिखित सरल चरणों का पालन करें:
-            </p>
-            <ul style="padding-left: 18px; margin: 0; font-size: 12px;">
-                <li><strong>Mobile Number</strong> पर क्लिक करें &mdash; कॉल अपने आप डायल हो जाएगी</li>
-                <li><strong>SMS</strong> पर क्लिक करें &mdash; आपके मोबाइल से आमंत्रण संदेश जाएगा</li>
-                <li><strong>WhatsApp</strong> पर क्लिक करें &mdash; व्हाट्सएप खुलेगा और संदेश अपने आप पोस्ट हो जाएगा</li>
-                <li>आप समाजबंधु को <strong>Sidhivinayak</strong> की जानकारी दें</li>
-            </ul>
-        </div>
+  <input id="searchInput" type="search" placeholder="🔍 Search by Name, Number, Registration, etc..." oninput="searchTable()" />
 
-        <!-- Search input (added) -->
-        <input id="searchInput" type="search" placeholder="🔍 Search by Name, Number, Registration, etc..." oninput="searchTable()" />
+  <!-- Compact dropdown toolbar (replace previous toolbar block) -->
+<div class="status-dropdown" id="statusDropdownWrap">
+  <button id="statusDropdownToggle" class="status-dropdown-toggle" 
+          aria-expanded="false" aria-controls="statusDropdownPanel" onclick="toggleStatusDropdown()">
+    Filters ▾
+    <span class="mini-total" id="miniTotal">0 / 0</span>
+  </button>
 
-        <div class="table-wrapper">
-            <table id="dataTable">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Assigned Person Name</th>
-                        <th>Mobile Number</th>
-                        <th>WahtsApp Message</th>
-                        <th>SMS</th>
-                        <th>Call Status</th>
-                        <th>As of</th>
-                        <th>Call Log Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-    
-            <tr style="background-color: #ffe6e6;">
+  <div id="statusDropdownPanel" class="status-dropdown-panel" role="region" aria-hidden="true">
+    <div class="status-toolbar" id="statusToolbar" aria-hidden="false">
+      <div class="status-filter-btn" data-status-key="not called" id="btn-notcalled" onclick="toggleStatusFilterFromToolbar('not called')">
+        <span class="badge badge-notcalled">Not Called</span>
+        <span class="count" id="count-notcalled">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="whatsapp" id="btn-whatsapp" onclick="toggleStatusFilterFromToolbar('whatsapp')">
+        <span class="badge badge-wa">WhatsApp</span>
+        <span class="count" id="count-whatsapp">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="confirmed" id="btn-confirmed" onclick="toggleStatusFilterFromToolbar('confirmed')">
+        <span class="badge badge-confirmed">Confirmed</span>
+        <span class="count" id="count-confirmed">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="maybe" id="btn-maybe" onclick="toggleStatusFilterFromToolbar('maybe')">
+        <span class="badge badge-maybe">Maybe</span>
+        <span class="count" id="count-maybe">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="busy" id="btn-busy" onclick="toggleStatusFilterFromToolbar('busy')">
+        <span class="badge badge-busy">Phone Busy</span>
+        <span class="count" id="count-busy">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="not reachable" id="btn-nr" onclick="toggleStatusFilterFromToolbar('not reachable')">
+        <span class="badge badge-nr">Not Reachable</span>
+        <span class="count" id="count-nr">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="not coming" id="btn-no" onclick="toggleStatusFilterFromToolbar('not coming')">
+        <span class="badge badge-no">Not Coming</span>
+        <span class="count" id="count-no">0</span>
+      </div>
+
+      <div class="legend" style="margin-left:auto;">
+        <strong>Total:</strong> <span id="totalVisible">0</span> visible / <span id="totalAll">0</span> total
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="table-wrapper">
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Assigned Person Name</th>
+          <th>WahtsApp Message</th>
+          <th>SMS</th>
+          <th>Call Status</th>
+          <th>Remarks</th>
+          <th>As of</th>
+          <th>Call Log Link</th>
+        </tr>
+      </thead>
+      <tbody>
+
+            <tr style="background-color: #fff7f7;">
                 <td>1</td>
-                <td>Adityakumar Bansilal Samaria</td>
-                <td><a onclick="this.style.color='green'" href='tel:+919820064425'>+91 9820064425</a></td>
+                <td><a href="tel:+919820064425" style="color:#007bff;" onclick="this.style.color='green'">Adityakumar Bansilal Samaria</a><br/><small style="color:#999">9820064425</small></td>
                 <td>
             <a href="https://wa.me/919820064425?text=Dear+Adityakumar+Bansilal+Samaria+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -85,15 +110,15 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9820064425&entry.1475012068=Adityakumar%20Bansilal%20Samaria&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+919820064425?body=Dear+Adityakumar+Bansilal+Samaria+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9820064425&entry.1475012068=Adityakumar%20Bansilal%20Samaria&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>2</td>
-                <td>Alok Natwarlal Birla</td>
-                <td><a onclick="this.style.color='green'" href='tel:+919820798531'>+91 9820798531</a></td>
+                <td><a href="tel:+919820798531" style="color:#007bff;" onclick="this.style.color='green'">Alok Natwarlal Birla</a><br/><small style="color:#999">9820798531</small></td>
                 <td>
             <a href="https://wa.me/919820798531?text=Dear+Alok+Natwarlal+Birla+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -108,15 +133,15 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9820798531&entry.1475012068=Alok%20Natwarlal%20Birla&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+919820798531?body=Dear+Alok+Natwarlal+Birla+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9820798531&entry.1475012068=Alok%20Natwarlal%20Birla&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>3</td>
-                <td>Atul Jagdish Bhutada</td>
-                <td><a onclick="this.style.color='green'" href='tel:+919764005162'>+91 9764005162</a></td>
+                <td><a href="tel:+919764005162" style="color:#007bff;" onclick="this.style.color='green'">Atul Jagdish Bhutada</a><br/><small style="color:#999">9764005162</small></td>
                 <td>
             <a href="https://wa.me/919764005162?text=Dear+Atul+Jagdish+Bhutada+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -131,15 +156,15 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9764005162&entry.1475012068=Atul%20Jagdish%20Bhutada&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+919764005162?body=Dear+Atul+Jagdish+Bhutada+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9764005162&entry.1475012068=Atul%20Jagdish%20Bhutada&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>4</td>
-                <td>Dinesh Rajendraprasad Jhanwar</td>
-                <td><a onclick="this.style.color='green'" href='tel:+919821379508'>+91 9821379508</a></td>
+                <td><a href="tel:+919821379508" style="color:#007bff;" onclick="this.style.color='green'">Dinesh Rajendraprasad Jhanwar</a><br/><small style="color:#999">9821379508</small></td>
                 <td>
             <a href="https://wa.me/919821379508?text=Dear+Dinesh+Rajendraprasad+Jhanwar+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -154,15 +179,15 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9821379508&entry.1475012068=Dinesh%20Rajendraprasad%20Jhanwar&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+919821379508?body=Dear+Dinesh+Rajendraprasad+Jhanwar+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9821379508&entry.1475012068=Dinesh%20Rajendraprasad%20Jhanwar&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>5</td>
-                <td>Gautam Gajadher Mandhania</td>
-                <td><a onclick="this.style.color='green'" href='tel:+919819421252'>+91 9819421252</a></td>
+                <td><a href="tel:+919819421252" style="color:#007bff;" onclick="this.style.color='green'">Gautam Gajadher Mandhania</a><br/><small style="color:#999">9819421252</small></td>
                 <td>
             <a href="https://wa.me/919819421252?text=Dear+Gautam+Gajadher+Mandhania+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -177,15 +202,15 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9819421252&entry.1475012068=Gautam%20Gajadher%20Mandhania&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+919819421252?body=Dear+Gautam+Gajadher+Mandhania+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9819421252&entry.1475012068=Gautam%20Gajadher%20Mandhania&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>6</td>
-                <td>Gokuldas Rameshwar Mundhra</td>
-                <td><a onclick="this.style.color='green'" href='tel:+919323978558'>+91 9323978558</a></td>
+                <td><a href="tel:+919323978558" style="color:#007bff;" onclick="this.style.color='green'">Gokuldas Rameshwar Mundhra</a><br/><small style="color:#999">9323978558</small></td>
                 <td>
             <a href="https://wa.me/919323978558?text=Dear+Gokuldas+Rameshwar+Mundhra+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -200,15 +225,15 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9323978558&entry.1475012068=Gokuldas%20Rameshwar%20Mundhra&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+919323978558?body=Dear+Gokuldas+Rameshwar+Mundhra+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9323978558&entry.1475012068=Gokuldas%20Rameshwar%20Mundhra&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>7</td>
-                <td>Jitendrakumar Purshotamdas Lahoti</td>
-                <td><a onclick="this.style.color='green'" href='tel:+919820459261'>+91 9820459261</a></td>
+                <td><a href="tel:+919820459261" style="color:#007bff;" onclick="this.style.color='green'">Jitendrakumar Purshotamdas Lahoti</a><br/><small style="color:#999">9820459261</small></td>
                 <td>
             <a href="https://wa.me/919820459261?text=Dear+Jitendrakumar+Purshotamdas+Lahoti+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -223,15 +248,15 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9820459261&entry.1475012068=Jitendrakumar%20Purshotamdas%20Lahoti&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+919820459261?body=Dear+Jitendrakumar+Purshotamdas+Lahoti+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9820459261&entry.1475012068=Jitendrakumar%20Purshotamdas%20Lahoti&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>8</td>
-                <td>Lakshminarayan Gopiram Saboo</td>
-                <td><a onclick="this.style.color='green'" href='tel:+919819674012'>+91 9819674012</a></td>
+                <td><a href="tel:+919819674012" style="color:#007bff;" onclick="this.style.color='green'">Lakshminarayan Gopiram Saboo</a><br/><small style="color:#999">9819674012</small></td>
                 <td>
             <a href="https://wa.me/919819674012?text=Dear+Lakshminarayan+Gopiram+Saboo+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -246,15 +271,15 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9819674012&entry.1475012068=Lakshminarayan%20Gopiram%20Saboo&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+919819674012?body=Dear+Lakshminarayan+Gopiram+Saboo+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9819674012&entry.1475012068=Lakshminarayan%20Gopiram%20Saboo&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>9</td>
-                <td>Naresh Rameshwarlal Mantri</td>
-                <td><a onclick="this.style.color='green'" href='tel:+919594120790'>+91 9594120790</a></td>
+                <td><a href="tel:+919594120790" style="color:#007bff;" onclick="this.style.color='green'">Naresh Rameshwarlal Mantri</a><br/><small style="color:#999">9594120790</small></td>
                 <td>
             <a href="https://wa.me/919594120790?text=Dear+Naresh+Rameshwarlal+Mantri+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -269,15 +294,15 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9594120790&entry.1475012068=Naresh%20Rameshwarlal%20Mantri&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+919594120790?body=Dear+Naresh+Rameshwarlal+Mantri+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9594120790&entry.1475012068=Naresh%20Rameshwarlal%20Mantri&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>10</td>
-                <td>Pankaj Maganlal Rathi</td>
-                <td><a onclick="this.style.color='green'" href='tel:+919323589700'>+91 9323589700</a></td>
+                <td><a href="tel:+919323589700" style="color:#007bff;" onclick="this.style.color='green'">Pankaj Maganlal Rathi</a><br/><small style="color:#999">9323589700</small></td>
                 <td>
             <a href="https://wa.me/919323589700?text=Dear+Pankaj+Maganlal+Rathi+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -292,15 +317,15 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9323589700&entry.1475012068=Pankaj%20Maganlal%20Rathi&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+919323589700?body=Dear+Pankaj+Maganlal+Rathi+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9323589700&entry.1475012068=Pankaj%20Maganlal%20Rathi&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>11</td>
-                <td>Rikhabdas Narsinghdas Daga</td>
-                <td><a onclick="this.style.color='green'" href='tel:+919322328211'>+91 9322328211</a></td>
+                <td><a href="tel:+919322328211" style="color:#007bff;" onclick="this.style.color='green'">Rikhabdas Narsinghdas Daga</a><br/><small style="color:#999">9322328211</small></td>
                 <td>
             <a href="https://wa.me/919322328211?text=Dear+Rikhabdas+Narsinghdas+Daga+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -315,15 +340,15 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9322328211&entry.1475012068=Rikhabdas%20Narsinghdas%20Daga&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+919322328211?body=Dear+Rikhabdas+Narsinghdas+Daga+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9322328211&entry.1475012068=Rikhabdas%20Narsinghdas%20Daga&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>12</td>
-                <td>Rishi Dinesh Sodhani</td>
-                <td><a onclick="this.style.color='green'" href='tel:+918291695989'>+91 8291695989</a></td>
+                <td><a href="tel:+918291695989" style="color:#007bff;" onclick="this.style.color='green'">Rishi Dinesh Sodhani</a><br/><small style="color:#999">8291695989</small></td>
                 <td>
             <a href="https://wa.me/918291695989?text=Dear+Rishi+Dinesh+Sodhani+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -338,15 +363,15 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=8291695989&entry.1475012068=Rishi%20Dinesh%20Sodhani&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+918291695989?body=Dear+Rishi+Dinesh+Sodhani+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=8291695989&entry.1475012068=Rishi%20Dinesh%20Sodhani&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>13</td>
-                <td>Vaibhav Jagdishprasad Baheti</td>
-                <td><a onclick="this.style.color='green'" href='tel:+919029946961'>+91 9029946961</a></td>
+                <td><a href="tel:+919029946961" style="color:#007bff;" onclick="this.style.color='green'">Vaibhav Jagdishprasad Baheti</a><br/><small style="color:#999">9029946961</small></td>
                 <td>
             <a href="https://wa.me/919029946961?text=Dear+Vaibhav+Jagdishprasad+Baheti+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -361,15 +386,15 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9029946961&entry.1475012068=Vaibhav%20Jagdishprasad%20Baheti&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+919029946961?body=Dear+Vaibhav+Jagdishprasad+Baheti+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9029946961&entry.1475012068=Vaibhav%20Jagdishprasad%20Baheti&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>14</td>
-                <td>Vipul Arun Jaju</td>
-                <td><a onclick="this.style.color='green'" href='tel:+919867688889'>+91 9867688889</a></td>
+                <td><a href="tel:+919867688889" style="color:#007bff;" onclick="this.style.color='green'">Vipul Arun Jaju</a><br/><small style="color:#999">9867688889</small></td>
                 <td>
             <a href="https://wa.me/919867688889?text=Dear+Vipul+Arun+Jaju+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -384,15 +409,15 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9867688889&entry.1475012068=Vipul%20Arun%20Jaju&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+919867688889?body=Dear+Vipul+Arun+Jaju+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9867688889&entry.1475012068=Vipul%20Arun%20Jaju&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-            <tr style="background-color: #ffe6e6;">
+            <tr style="background-color: #fff7f7;">
                 <td>15</td>
-                <td>Yogendrakumar Nandlal Kabra</td>
-                <td><a onclick="this.style.color='green'" href='tel:+919324760100'>+91 9324760100</a></td>
+                <td><a href="tel:+919324760100" style="color:#007bff;" onclick="this.style.color='green'">Yogendrakumar Nandlal Kabra</a><br/><small style="color:#999">9324760100</small></td>
                 <td>
             <a href="https://wa.me/919324760100?text=Dear+Yogendrakumar+Nandlal+Kabra+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road"
             target="_blank"
@@ -407,110 +432,27 @@
             </a>
               &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9324760100&entry.1475012068=Yogendrakumar%20Nandlal%20Kabra&entry.410440017=Sidhivinayak" target="_blank">Log</a> </td>
                 <td><a href="sms:+919324760100?body=Dear+Yogendrakumar+Nandlal+Kabra+Ji%2C%0A%0AMaheshwari+Pragati+Mandal+%0A%0AMalad+Kshetriya+Yuva+Samiti+Organises%0A%0A%2A%F0%9F%9B%95+Siddhivinayak+Padyatra+-+A+Spiritual+walk+to+Siddhivinayak%F0%9F%9A%B6%F0%9F%8F%BD%E2%80%8D%E2%99%82%F0%9F%9A%B6%F0%9F%8F%BC%E2%80%8D%E2%99%80%2A%0A%0AEnjoy+a+spiritual+walk+to+Siddhivinayak+temple+under+the+cool+night+sky+as+we+go+in+a+group+singing+and+chanting+along+the+way.%0A%0ADate+-+20th+December+%28Saturday%29%0A%0ATime+%F0%9F%95%99+-+Departure+at+night+10.30+pm%0A%0ALocation+-+From+Chincholi+Hanuman+Mandir%2C+S.V.+Road%0A%0ADo+register+on+below+link+and+secure+your+spot+now%0A%0Ahttps%3A%2F%2Fforms.gle%2FQ4Y92RSTE7DwPVzn9%0A%0A%2ALast+date+for+registration+10th+December+2025%2A%0A%0ANote+-%0A-+Approx+21+kms+Walking+to+Siddhivnayak+via+S.V.+road%0A-+Return+journey+via+bus+till+Hanuman+Mandir%2C+Malad+SV+road" target="_blank" onclick="this.style.color='green'">SMS</a></td>
-                <td>Not Called</td>
-                <td>NaT</td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
                 <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Sagar%20Sampat%20Bhattad&entry.1585817478=9324760100&entry.1475012068=Yogendrakumar%20Nandlal%20Kabra&entry.410440017=Sidhivinayak" target="_blank">Log Call</a></td>
             </tr>
         
-                </tbody>
-            </table>
-        </div>
+      </tbody>
+    </table>
+  </div>
 
-        <div id="noResults" class="no-results">No matching results found</div>
+  <div id="noResults" class="no-results">No matching results found</div>
 
-        <script>
-        // Helper: escape regex special chars
-        function escapeRegex(s) {
-            return s.replace(/[.*+?^${}()|[\]\\]/g, '\\\\$&');
-        }
+  <!-- Floating Action Bar -->
+  <div class="fab-bar" aria-hidden="false" id="floatingBar">
+    <button class="fab fab-top" title="Go to Top" onclick="goToTop()">↑</button>
+    <button id="filterNotCalledBtn" class="fab fab-filter" title="Only show Not Called" onclick="toggleStatusFilter('not called')">🔴</button>
+    <button id="filterWhatsAppBtn" class="fab fab-filter" title="Only show WhatsApp" onclick="toggleStatusFilter('whatsapp')">💬</button>
+    <button class="fab fab-filter" title="Clear search & highlights" onclick="clearHighlightsAndSearch()">✖</button>
+  </div>
 
-        // Save original innerHTML of each td once (so we can restore)
-        (function cacheCellOriginals() {
-            const tds = document.querySelectorAll('#dataTable tbody td');
-            tds.forEach(td => {
-                if (!td.dataset.original) td.dataset.original = td.innerHTML;
-            });
-        })();
-
-        // Highlight matches in text nodes under an element, preserving tags (links etc)
-        function highlightUnderElement(el, term) {
-            if (!term) return;
-            const regex = new RegExp(escapeRegex(term), 'gi');
-
-            function walk(node) {
-                // We do not descend into script/style tags
-                if (node.nodeType === Node.TEXT_NODE) {
-                    const text = node.nodeValue;
-                    const match = regex.exec(text);
-                    if (match) {
-                        regex.lastIndex = 0; // reset for subsequent calls
-                        const frag = document.createDocumentFragment();
-                        let lastIndex = 0;
-                        let m;
-                        while ((m = regex.exec(text)) !== null) {
-                            const before = text.slice(lastIndex, m.index);
-                            if (before) frag.appendChild(document.createTextNode(before));
-                            const mark = document.createElement('mark');
-                            mark.textContent = m[0];
-                            frag.appendChild(mark);
-                            lastIndex = m.index + m[0].length;
-                        }
-                        const after = text.slice(lastIndex);
-                        if (after) frag.appendChild(document.createTextNode(after));
-                        node.parentNode.replaceChild(frag, node);
-                    }
-                } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName.toLowerCase() !== 'script' && node.tagName.toLowerCase() !== 'style') {
-                    // iterate over a snapshot because childNodes will be mutated
-                    const children = Array.from(node.childNodes);
-                    for (const child of children) walk(child);
-                }
-            }
-
-            walk(el);
-        }
-
-        function searchTable() {
-            const input = document.getElementById('searchInput');
-            const filter = (input.value || '').trim().toLowerCase();
-            const rows = document.querySelectorAll('#dataTable tbody tr');
-            let foundAny = false;
-
-            rows.forEach(row => {
-                // Restore original cell HTML to clear previous highlights
-                const tds = row.querySelectorAll('td');
-                tds.forEach(td => {
-                    if (td.dataset.original !== undefined) {
-                        td.innerHTML = td.dataset.original;
-                    }
-                });
-
-                // Determine row text for searching (uses textContent to ignore tags)
-                const rowText = row.textContent || "";
-                const isMatch = !filter || rowText.toLowerCase().includes(filter);
-
-                row.style.display = isMatch ? "" : "none";
-                if (isMatch && filter) {
-                    // Highlight term inside each cell, preserving links
-                    tds.forEach(td => {
-                        // only highlight if the cell's text contains the filter
-                        if ((td.textContent || "").toLowerCase().includes(filter)) {
-                            highlightUnderElement(td, filter);
-                        }
-                    });
-                }
-                if (isMatch) foundAny = true;
-            });
-
-            document.getElementById('noResults').style.display = foundAny || !filter ? 'none' : 'block';
-        }
-
-        // Ensure originals are cached after page loads rows (for dynamic cases)
-        window.addEventListener('DOMContentLoaded', function() {
-            const tds = document.querySelectorAll('#dataTable tbody td');
-            tds.forEach(td => { if (!td.dataset.original) td.dataset.original = td.innerHTML; });
-        });
-        </script>
-
-    </body>
-    </html>
-    
+  <!-- Link to external script (relative path) -->
+  <!--<script src="{}"></script>-->
+</body>
+</html>
