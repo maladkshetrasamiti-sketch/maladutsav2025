@@ -3,74 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Calling Dashboard For Sidhivinayak</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        color: #333;
-        background-color: #fff;
-    }
-    h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .summary-box {
-        background: #f8f9fa;
-        border: 1px solid #dee2e6;
-        border-radius: 8px;
-        padding: 15px;
-        margin: 20px auto;
-        max-width: 600px;
-        text-align: center;
-    }
-    .summary-box p {
-        margin: 5px 0;
-        font-size: 16px;
-    }
-    .summary-box .highlight {
-        font-weight: bold;
-        color: #007bff;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 14px;
-        margin-top: 20px;
-    }
-    th, td {
-        border: 1px solid #aaa;
-        padding: 8px 10px;
-        text-align: center;
-    }
-    th {
-        background-color: #f8f8f8;
-        font-weight: bold;
-    }
-    td.name-cell {
-        text-align: left;
-    }    
-    a {
-        color: #007bff;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-    .low-calls {
-        font-weight: bold;
-        color: #ff0000;
-    }
-    .low-calls a {
-        color: #ff0000;
-    }
+<script src="program/scripts.js"></script>
+<link rel="stylesheet" href="program/styles.css">
 
-</style>
 </head>
 <body>
     <img src="https://maladkshetrasamiti-sketch.github.io/maladutsav2025/program/MPM_logo.png" alt="Malad Kshetra Samiti Logo" style="display:block; margin-left:auto; margin-right:auto; width:100px; height:auto;">
     <h2>📞 Calling Dashboard For Sidhivinayak</h2>
+    <br/>
+    <input id="searchInput" type="search" placeholder="🔍 Search by Name, Number, Registration, etc..." oninput="searchTable()" />
+    <br/>
 
-    <table>
+    <table id="dataTable">
         <tr>
             <th>Samiti Member</th>
             <th>Whats App</th>
