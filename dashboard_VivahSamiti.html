@@ -3,74 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Calling Dashboard For Meet n Greet - 2</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        color: #333;
-        background-color: #fff;
-    }
-    h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .summary-box {
-        background: #f8f9fa;
-        border: 1px solid #dee2e6;
-        border-radius: 8px;
-        padding: 15px;
-        margin: 20px auto;
-        max-width: 600px;
-        text-align: center;
-    }
-    .summary-box p {
-        margin: 5px 0;
-        font-size: 16px;
-    }
-    .summary-box .highlight {
-        font-weight: bold;
-        color: #007bff;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 14px;
-        margin-top: 20px;
-    }
-    th, td {
-        border: 1px solid #aaa;
-        padding: 8px 10px;
-        text-align: center;
-    }
-    th {
-        background-color: #f8f8f8;
-        font-weight: bold;
-    }
-    td.name-cell {
-        text-align: left;
-    }    
-    a {
-        color: #007bff;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-    .low-calls {
-        font-weight: bold;
-        color: #ff0000;
-    }
-    .low-calls a {
-        color: #ff0000;
-    }
+<script src="program/scripts.js"></script>
+<link rel="stylesheet" href="program/styles.css">
 
-</style>
 </head>
 <body>
     <img src="https://maladkshetrasamiti-sketch.github.io/maladutsav2025/program\vivahsamiti\/MPM_logo.png" alt="Malad Kshetra Samiti Logo" style="display:block; margin-left:auto; margin-right:auto; width:100px; height:auto;">
     <h2>📞 Calling Dashboard For Meet n Greet - 2</h2>
+    <br/>
+    <input id="searchInput" type="search" placeholder="🔍 Search by Name, Number, Registration, etc..." oninput="searchTable()" />
+    <br/>
 
-    <table>
+    <table id="dataTable">
         <tr>
             <th>Samiti Member</th>
             <th>Whats App</th>
@@ -132,6 +76,27 @@
             <td><a href='https://wa.me/919324574947?text=%F0%9F%8C%B8+%E0%A4%9C%E0%A4%AF+%E0%A4%AE%E0%A4%B9%E0%A5%87%E0%A4%B6%21+%F0%9F%99%8F%0D%0A%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AF+Neeraj+Sarda+%E0%A4%9C%E0%A5%80%2C%0D%0A%0D%0AMeet+n+Greet+-+2+%E0%A4%95%E0%A5%87+%E0%A4%85%E0%A4%82%E0%A4%A4%E0%A4%B0%E0%A5%8D%E0%A4%97%E0%A4%A4+%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A5%80+calling+list+%E0%A4%A8%E0%A5%80%E0%A4%9A%E0%A5%87+share+%E0%A4%95%E0%A5%80+%E0%A4%9C%E0%A4%BE+%E0%A4%B0%E0%A4%B9%E0%A5%80+%E0%A4%B9%E0%A5%88+%E2%80%94%0D%0Ahttps%3A%2F%2Fmaladkshetrasamiti-sketch.github.io%2Fmaladutsav2025%2Fprogram%2Fvivahsamiti%2Foutput%2FCL_vivahsamiti_NeerajSarda.html%0D%0A%0D%0A%E0%A4%95%E0%A5%83%E0%A4%AA%E0%A4%AF%E0%A4%BE+%E0%A4%85%E0%A4%AA%E0%A4%A8%E0%A5%87+%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%BF%E0%A4%A4+%E0%A4%B8%E0%A4%82%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%95%E0%A5%8B%E0%A4%82+%E0%A4%B8%E0%A5%87+%E0%A4%B8%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%87%E0%A4%AE+%E0%A4%AC%E0%A4%BE%E0%A4%A4+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%2C+WhatsApp+karen+%E0%A4%94%E0%A4%B0+%E0%A4%89%E0%A4%A8%E0%A5%8D%E0%A4%B9%E0%A5%87%E0%A4%82+Program+main+shamil+%E0%A4%B9%E0%A5%8B%E0%A4%A8%E0%A5%87+%E0%A4%95%E0%A5%87+%E0%A4%B2%E0%A4%BF%E0%A4%8F+motivate+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%F0%9F%92%AB%0D%0A%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A4%BE+%E0%A4%B8%E0%A4%B9%E0%A4%AF%E0%A5%8B%E0%A4%97+%E0%A4%87%E0%A4%B8+%E0%A4%86%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8+%E0%A4%95%E0%A5%8B+%E0%A4%B8%E0%A4%AB%E0%A4%B2+%E0%A4%AC%E0%A4%A8%E0%A4%BE%E0%A4%A8%E0%A5%87+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%AE%E0%A4%B9%E0%A4%A4%E0%A5%8D%E0%A4%B5%E0%A4%AA%E0%A5%82%E0%A4%B0%E0%A5%8D%E0%A4%A3+%E0%A4%B9%E0%A5%88+%F0%9F%99%8F%0D%0A%0D%0A%E2%80%93+Vivah+Sahyog+Samiti+%F0%9F%8C%B8'>💬</a></td>
             <td><a href='tel:+919324574947'>📞</a></td>
             <td><a href="sms:+919324574947?body=%F0%9F%8C%B8+%E0%A4%9C%E0%A4%AF+%E0%A4%AE%E0%A4%B9%E0%A5%87%E0%A4%B6%21+%F0%9F%99%8F%0D%0A%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AF+Neeraj+Sarda+%E0%A4%9C%E0%A5%80%2C%0D%0A%0D%0AMeet+n+Greet+-+2+%E0%A4%95%E0%A5%87+%E0%A4%85%E0%A4%82%E0%A4%A4%E0%A4%B0%E0%A5%8D%E0%A4%97%E0%A4%A4+%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A5%80+calling+list+%E0%A4%A8%E0%A5%80%E0%A4%9A%E0%A5%87+share+%E0%A4%95%E0%A5%80+%E0%A4%9C%E0%A4%BE+%E0%A4%B0%E0%A4%B9%E0%A5%80+%E0%A4%B9%E0%A5%88+%E2%80%94%0D%0Ahttps%3A%2F%2Fmaladkshetrasamiti-sketch.github.io%2Fmaladutsav2025%2Fprogram%2Fvivahsamiti%2Foutput%2FCL_vivahsamiti_NeerajSarda.html%0D%0A%0D%0A%E0%A4%95%E0%A5%83%E0%A4%AA%E0%A4%AF%E0%A4%BE+%E0%A4%85%E0%A4%AA%E0%A4%A8%E0%A5%87+%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%BF%E0%A4%A4+%E0%A4%B8%E0%A4%82%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%95%E0%A5%8B%E0%A4%82+%E0%A4%B8%E0%A5%87+%E0%A4%B8%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%87%E0%A4%AE+%E0%A4%AC%E0%A4%BE%E0%A4%A4+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%2C+WhatsApp+karen+%E0%A4%94%E0%A4%B0+%E0%A4%89%E0%A4%A8%E0%A5%8D%E0%A4%B9%E0%A5%87%E0%A4%82+Program+main+shamil+%E0%A4%B9%E0%A5%8B%E0%A4%A8%E0%A5%87+%E0%A4%95%E0%A5%87+%E0%A4%B2%E0%A4%BF%E0%A4%8F+motivate+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%F0%9F%92%AB%0D%0A%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A4%BE+%E0%A4%B8%E0%A4%B9%E0%A4%AF%E0%A5%8B%E0%A4%97+%E0%A4%87%E0%A4%B8+%E0%A4%86%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8+%E0%A4%95%E0%A5%8B+%E0%A4%B8%E0%A4%AB%E0%A4%B2+%E0%A4%AC%E0%A4%A8%E0%A4%BE%E0%A4%A8%E0%A5%87+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%AE%E0%A4%B9%E0%A4%A4%E0%A5%8D%E0%A4%B5%E0%A4%AA%E0%A5%82%E0%A4%B0%E0%A5%8D%E0%A4%A3+%E0%A4%B9%E0%A5%88+%F0%9F%99%8F%0D%0A%0D%0A%E2%80%93+Vivah+Sahyog+Samiti+%F0%9F%8C%B8" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+        </tr>
+    
+        <tr>
+            <td><a href='https://maladkshetrasamiti-sketch.github.io/maladutsav2025/program/vivahsamiti/output/CL_vivahsamiti_Prema.html'>Prema</a></small></td>
+            <td><a href='https://wa.me/919821334271?text=%F0%9F%8C%B8+%E0%A4%9C%E0%A4%AF+%E0%A4%AE%E0%A4%B9%E0%A5%87%E0%A4%B6%21+%F0%9F%99%8F%0D%0A%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AF+Prema+%E0%A4%9C%E0%A5%80%2C%0D%0A%0D%0AMeet+n+Greet+-+2+%E0%A4%95%E0%A5%87+%E0%A4%85%E0%A4%82%E0%A4%A4%E0%A4%B0%E0%A5%8D%E0%A4%97%E0%A4%A4+%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A5%80+calling+list+%E0%A4%A8%E0%A5%80%E0%A4%9A%E0%A5%87+share+%E0%A4%95%E0%A5%80+%E0%A4%9C%E0%A4%BE+%E0%A4%B0%E0%A4%B9%E0%A5%80+%E0%A4%B9%E0%A5%88+%E2%80%94%0D%0Ahttps%3A%2F%2Fmaladkshetrasamiti-sketch.github.io%2Fmaladutsav2025%2Fprogram%2Fvivahsamiti%2Foutput%2FCL_vivahsamiti_Prema.html%0D%0A%0D%0A%E0%A4%95%E0%A5%83%E0%A4%AA%E0%A4%AF%E0%A4%BE+%E0%A4%85%E0%A4%AA%E0%A4%A8%E0%A5%87+%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%BF%E0%A4%A4+%E0%A4%B8%E0%A4%82%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%95%E0%A5%8B%E0%A4%82+%E0%A4%B8%E0%A5%87+%E0%A4%B8%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%87%E0%A4%AE+%E0%A4%AC%E0%A4%BE%E0%A4%A4+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%2C+WhatsApp+karen+%E0%A4%94%E0%A4%B0+%E0%A4%89%E0%A4%A8%E0%A5%8D%E0%A4%B9%E0%A5%87%E0%A4%82+Program+main+shamil+%E0%A4%B9%E0%A5%8B%E0%A4%A8%E0%A5%87+%E0%A4%95%E0%A5%87+%E0%A4%B2%E0%A4%BF%E0%A4%8F+motivate+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%F0%9F%92%AB%0D%0A%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A4%BE+%E0%A4%B8%E0%A4%B9%E0%A4%AF%E0%A5%8B%E0%A4%97+%E0%A4%87%E0%A4%B8+%E0%A4%86%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8+%E0%A4%95%E0%A5%8B+%E0%A4%B8%E0%A4%AB%E0%A4%B2+%E0%A4%AC%E0%A4%A8%E0%A4%BE%E0%A4%A8%E0%A5%87+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%AE%E0%A4%B9%E0%A4%A4%E0%A5%8D%E0%A4%B5%E0%A4%AA%E0%A5%82%E0%A4%B0%E0%A5%8D%E0%A4%A3+%E0%A4%B9%E0%A5%88+%F0%9F%99%8F%0D%0A%0D%0A%E2%80%93+Vivah+Sahyog+Samiti+%F0%9F%8C%B8'>💬</a></td>
+            <td><a href='tel:+919821334271'>📞</a></td>
+            <td><a href="sms:+919821334271?body=%F0%9F%8C%B8+%E0%A4%9C%E0%A4%AF+%E0%A4%AE%E0%A4%B9%E0%A5%87%E0%A4%B6%21+%F0%9F%99%8F%0D%0A%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AF+Prema+%E0%A4%9C%E0%A5%80%2C%0D%0A%0D%0AMeet+n+Greet+-+2+%E0%A4%95%E0%A5%87+%E0%A4%85%E0%A4%82%E0%A4%A4%E0%A4%B0%E0%A5%8D%E0%A4%97%E0%A4%A4+%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A5%80+calling+list+%E0%A4%A8%E0%A5%80%E0%A4%9A%E0%A5%87+share+%E0%A4%95%E0%A5%80+%E0%A4%9C%E0%A4%BE+%E0%A4%B0%E0%A4%B9%E0%A5%80+%E0%A4%B9%E0%A5%88+%E2%80%94%0D%0Ahttps%3A%2F%2Fmaladkshetrasamiti-sketch.github.io%2Fmaladutsav2025%2Fprogram%2Fvivahsamiti%2Foutput%2FCL_vivahsamiti_Prema.html%0D%0A%0D%0A%E0%A4%95%E0%A5%83%E0%A4%AA%E0%A4%AF%E0%A4%BE+%E0%A4%85%E0%A4%AA%E0%A4%A8%E0%A5%87+%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%BF%E0%A4%A4+%E0%A4%B8%E0%A4%82%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%95%E0%A5%8B%E0%A4%82+%E0%A4%B8%E0%A5%87+%E0%A4%B8%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%87%E0%A4%AE+%E0%A4%AC%E0%A4%BE%E0%A4%A4+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%2C+WhatsApp+karen+%E0%A4%94%E0%A4%B0+%E0%A4%89%E0%A4%A8%E0%A5%8D%E0%A4%B9%E0%A5%87%E0%A4%82+Program+main+shamil+%E0%A4%B9%E0%A5%8B%E0%A4%A8%E0%A5%87+%E0%A4%95%E0%A5%87+%E0%A4%B2%E0%A4%BF%E0%A4%8F+motivate+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%F0%9F%92%AB%0D%0A%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A4%BE+%E0%A4%B8%E0%A4%B9%E0%A4%AF%E0%A5%8B%E0%A4%97+%E0%A4%87%E0%A4%B8+%E0%A4%86%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8+%E0%A4%95%E0%A5%8B+%E0%A4%B8%E0%A4%AB%E0%A4%B2+%E0%A4%AC%E0%A4%A8%E0%A4%BE%E0%A4%A8%E0%A5%87+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%AE%E0%A4%B9%E0%A4%A4%E0%A5%8D%E0%A4%B5%E0%A4%AA%E0%A5%82%E0%A4%B0%E0%A5%8D%E0%A4%A3+%E0%A4%B9%E0%A5%88+%F0%9F%99%8F%0D%0A%0D%0A%E2%80%93+Vivah+Sahyog+Samiti+%F0%9F%8C%B8" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+        </tr>
+    
+        <tr>
+            <td><a href='https://maladkshetrasamiti-sketch.github.io/maladutsav2025/program/vivahsamiti/output/CL_vivahsamiti_Vimla.html'>Vimla</a></small></td>
+            <td><a href='https://wa.me/919324560725?text=%F0%9F%8C%B8+%E0%A4%9C%E0%A4%AF+%E0%A4%AE%E0%A4%B9%E0%A5%87%E0%A4%B6%21+%F0%9F%99%8F%0D%0A%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AF+Vimla+%E0%A4%9C%E0%A5%80%2C%0D%0A%0D%0AMeet+n+Greet+-+2+%E0%A4%95%E0%A5%87+%E0%A4%85%E0%A4%82%E0%A4%A4%E0%A4%B0%E0%A5%8D%E0%A4%97%E0%A4%A4+%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A5%80+calling+list+%E0%A4%A8%E0%A5%80%E0%A4%9A%E0%A5%87+share+%E0%A4%95%E0%A5%80+%E0%A4%9C%E0%A4%BE+%E0%A4%B0%E0%A4%B9%E0%A5%80+%E0%A4%B9%E0%A5%88+%E2%80%94%0D%0Ahttps%3A%2F%2Fmaladkshetrasamiti-sketch.github.io%2Fmaladutsav2025%2Fprogram%2Fvivahsamiti%2Foutput%2FCL_vivahsamiti_Vimla.html%0D%0A%0D%0A%E0%A4%95%E0%A5%83%E0%A4%AA%E0%A4%AF%E0%A4%BE+%E0%A4%85%E0%A4%AA%E0%A4%A8%E0%A5%87+%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%BF%E0%A4%A4+%E0%A4%B8%E0%A4%82%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%95%E0%A5%8B%E0%A4%82+%E0%A4%B8%E0%A5%87+%E0%A4%B8%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%87%E0%A4%AE+%E0%A4%AC%E0%A4%BE%E0%A4%A4+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%2C+WhatsApp+karen+%E0%A4%94%E0%A4%B0+%E0%A4%89%E0%A4%A8%E0%A5%8D%E0%A4%B9%E0%A5%87%E0%A4%82+Program+main+shamil+%E0%A4%B9%E0%A5%8B%E0%A4%A8%E0%A5%87+%E0%A4%95%E0%A5%87+%E0%A4%B2%E0%A4%BF%E0%A4%8F+motivate+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%F0%9F%92%AB%0D%0A%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A4%BE+%E0%A4%B8%E0%A4%B9%E0%A4%AF%E0%A5%8B%E0%A4%97+%E0%A4%87%E0%A4%B8+%E0%A4%86%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8+%E0%A4%95%E0%A5%8B+%E0%A4%B8%E0%A4%AB%E0%A4%B2+%E0%A4%AC%E0%A4%A8%E0%A4%BE%E0%A4%A8%E0%A5%87+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%AE%E0%A4%B9%E0%A4%A4%E0%A5%8D%E0%A4%B5%E0%A4%AA%E0%A5%82%E0%A4%B0%E0%A5%8D%E0%A4%A3+%E0%A4%B9%E0%A5%88+%F0%9F%99%8F%0D%0A%0D%0A%E2%80%93+Vivah+Sahyog+Samiti+%F0%9F%8C%B8'>💬</a></td>
+            <td><a href='tel:+919324560725'>📞</a></td>
+            <td><a href="sms:+919324560725?body=%F0%9F%8C%B8+%E0%A4%9C%E0%A4%AF+%E0%A4%AE%E0%A4%B9%E0%A5%87%E0%A4%B6%21+%F0%9F%99%8F%0D%0A%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AF+Vimla+%E0%A4%9C%E0%A5%80%2C%0D%0A%0D%0AMeet+n+Greet+-+2+%E0%A4%95%E0%A5%87+%E0%A4%85%E0%A4%82%E0%A4%A4%E0%A4%B0%E0%A5%8D%E0%A4%97%E0%A4%A4+%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A5%80+calling+list+%E0%A4%A8%E0%A5%80%E0%A4%9A%E0%A5%87+share+%E0%A4%95%E0%A5%80+%E0%A4%9C%E0%A4%BE+%E0%A4%B0%E0%A4%B9%E0%A5%80+%E0%A4%B9%E0%A5%88+%E2%80%94%0D%0Ahttps%3A%2F%2Fmaladkshetrasamiti-sketch.github.io%2Fmaladutsav2025%2Fprogram%2Fvivahsamiti%2Foutput%2FCL_vivahsamiti_Vimla.html%0D%0A%0D%0A%E0%A4%95%E0%A5%83%E0%A4%AA%E0%A4%AF%E0%A4%BE+%E0%A4%85%E0%A4%AA%E0%A4%A8%E0%A5%87+%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%BF%E0%A4%A4+%E0%A4%B8%E0%A4%82%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%95%E0%A5%8B%E0%A4%82+%E0%A4%B8%E0%A5%87+%E0%A4%B8%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%87%E0%A4%AE+%E0%A4%AC%E0%A4%BE%E0%A4%A4+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%2C+WhatsApp+karen+%E0%A4%94%E0%A4%B0+%E0%A4%89%E0%A4%A8%E0%A5%8D%E0%A4%B9%E0%A5%87%E0%A4%82+Program+main+shamil+%E0%A4%B9%E0%A5%8B%E0%A4%A8%E0%A5%87+%E0%A4%95%E0%A5%87+%E0%A4%B2%E0%A4%BF%E0%A4%8F+motivate+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%F0%9F%92%AB%0D%0A%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A4%BE+%E0%A4%B8%E0%A4%B9%E0%A4%AF%E0%A5%8B%E0%A4%97+%E0%A4%87%E0%A4%B8+%E0%A4%86%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8+%E0%A4%95%E0%A5%8B+%E0%A4%B8%E0%A4%AB%E0%A4%B2+%E0%A4%AC%E0%A4%A8%E0%A4%BE%E0%A4%A8%E0%A5%87+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%AE%E0%A4%B9%E0%A4%A4%E0%A5%8D%E0%A4%B5%E0%A4%AA%E0%A5%82%E0%A4%B0%E0%A5%8D%E0%A4%A3+%E0%A4%B9%E0%A5%88+%F0%9F%99%8F%0D%0A%0D%0A%E2%80%93+Vivah+Sahyog+Samiti+%F0%9F%8C%B8" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+        </tr>
+    
+        <tr>
+            <td><a href='https://maladkshetrasamiti-sketch.github.io/maladutsav2025/program/vivahsamiti/output/CL_vivahsamiti_Harishankar.html'>Harishankar</a></small></td>
+            <td><a href='https://wa.me/919821073387?text=%F0%9F%8C%B8+%E0%A4%9C%E0%A4%AF+%E0%A4%AE%E0%A4%B9%E0%A5%87%E0%A4%B6%21+%F0%9F%99%8F%0D%0A%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AF+Harishankar+%E0%A4%9C%E0%A5%80%2C%0D%0A%0D%0AMeet+n+Greet+-+2+%E0%A4%95%E0%A5%87+%E0%A4%85%E0%A4%82%E0%A4%A4%E0%A4%B0%E0%A5%8D%E0%A4%97%E0%A4%A4+%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A5%80+calling+list+%E0%A4%A8%E0%A5%80%E0%A4%9A%E0%A5%87+share+%E0%A4%95%E0%A5%80+%E0%A4%9C%E0%A4%BE+%E0%A4%B0%E0%A4%B9%E0%A5%80+%E0%A4%B9%E0%A5%88+%E2%80%94%0D%0Ahttps%3A%2F%2Fmaladkshetrasamiti-sketch.github.io%2Fmaladutsav2025%2Fprogram%2Fvivahsamiti%2Foutput%2FCL_vivahsamiti_Harishankar.html%0D%0A%0D%0A%E0%A4%95%E0%A5%83%E0%A4%AA%E0%A4%AF%E0%A4%BE+%E0%A4%85%E0%A4%AA%E0%A4%A8%E0%A5%87+%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%BF%E0%A4%A4+%E0%A4%B8%E0%A4%82%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%95%E0%A5%8B%E0%A4%82+%E0%A4%B8%E0%A5%87+%E0%A4%B8%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%87%E0%A4%AE+%E0%A4%AC%E0%A4%BE%E0%A4%A4+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%2C+WhatsApp+karen+%E0%A4%94%E0%A4%B0+%E0%A4%89%E0%A4%A8%E0%A5%8D%E0%A4%B9%E0%A5%87%E0%A4%82+Program+main+shamil+%E0%A4%B9%E0%A5%8B%E0%A4%A8%E0%A5%87+%E0%A4%95%E0%A5%87+%E0%A4%B2%E0%A4%BF%E0%A4%8F+motivate+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%F0%9F%92%AB%0D%0A%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A4%BE+%E0%A4%B8%E0%A4%B9%E0%A4%AF%E0%A5%8B%E0%A4%97+%E0%A4%87%E0%A4%B8+%E0%A4%86%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8+%E0%A4%95%E0%A5%8B+%E0%A4%B8%E0%A4%AB%E0%A4%B2+%E0%A4%AC%E0%A4%A8%E0%A4%BE%E0%A4%A8%E0%A5%87+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%AE%E0%A4%B9%E0%A4%A4%E0%A5%8D%E0%A4%B5%E0%A4%AA%E0%A5%82%E0%A4%B0%E0%A5%8D%E0%A4%A3+%E0%A4%B9%E0%A5%88+%F0%9F%99%8F%0D%0A%0D%0A%E2%80%93+Vivah+Sahyog+Samiti+%F0%9F%8C%B8'>💬</a></td>
+            <td><a href='tel:+919821073387'>📞</a></td>
+            <td><a href="sms:+919821073387?body=%F0%9F%8C%B8+%E0%A4%9C%E0%A4%AF+%E0%A4%AE%E0%A4%B9%E0%A5%87%E0%A4%B6%21+%F0%9F%99%8F%0D%0A%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AF+Harishankar+%E0%A4%9C%E0%A5%80%2C%0D%0A%0D%0AMeet+n+Greet+-+2+%E0%A4%95%E0%A5%87+%E0%A4%85%E0%A4%82%E0%A4%A4%E0%A4%B0%E0%A5%8D%E0%A4%97%E0%A4%A4+%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A5%80+calling+list+%E0%A4%A8%E0%A5%80%E0%A4%9A%E0%A5%87+share+%E0%A4%95%E0%A5%80+%E0%A4%9C%E0%A4%BE+%E0%A4%B0%E0%A4%B9%E0%A5%80+%E0%A4%B9%E0%A5%88+%E2%80%94%0D%0Ahttps%3A%2F%2Fmaladkshetrasamiti-sketch.github.io%2Fmaladutsav2025%2Fprogram%2Fvivahsamiti%2Foutput%2FCL_vivahsamiti_Harishankar.html%0D%0A%0D%0A%E0%A4%95%E0%A5%83%E0%A4%AA%E0%A4%AF%E0%A4%BE+%E0%A4%85%E0%A4%AA%E0%A4%A8%E0%A5%87+%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%BF%E0%A4%A4+%E0%A4%B8%E0%A4%82%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%95%E0%A5%8B%E0%A4%82+%E0%A4%B8%E0%A5%87+%E0%A4%B8%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%87%E0%A4%AE+%E0%A4%AC%E0%A4%BE%E0%A4%A4+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%2C+WhatsApp+karen+%E0%A4%94%E0%A4%B0+%E0%A4%89%E0%A4%A8%E0%A5%8D%E0%A4%B9%E0%A5%87%E0%A4%82+Program+main+shamil+%E0%A4%B9%E0%A5%8B%E0%A4%A8%E0%A5%87+%E0%A4%95%E0%A5%87+%E0%A4%B2%E0%A4%BF%E0%A4%8F+motivate+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82+%F0%9F%92%AB%0D%0A%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A4%BE+%E0%A4%B8%E0%A4%B9%E0%A4%AF%E0%A5%8B%E0%A4%97+%E0%A4%87%E0%A4%B8+%E0%A4%86%E0%A4%AF%E0%A5%8B%E0%A4%9C%E0%A4%A8+%E0%A4%95%E0%A5%8B+%E0%A4%B8%E0%A4%AB%E0%A4%B2+%E0%A4%AC%E0%A4%A8%E0%A4%BE%E0%A4%A8%E0%A5%87+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%AE%E0%A4%B9%E0%A4%A4%E0%A5%8D%E0%A4%B5%E0%A4%AA%E0%A5%82%E0%A4%B0%E0%A5%8D%E0%A4%A3+%E0%A4%B9%E0%A5%88+%F0%9F%99%8F%0D%0A%0D%0A%E2%80%93+Vivah+Sahyog+Samiti+%F0%9F%8C%B8" target="_blank" onclick="this.style.color='green'">SMS</a></td>
         </tr>
     
     </table>
