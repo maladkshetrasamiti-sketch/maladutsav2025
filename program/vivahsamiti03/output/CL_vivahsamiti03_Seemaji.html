@@ -1,0 +1,1194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Calling List - Seemaji</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../scripts.js"></script>
+</head>
+<body>
+  <img src="https://maladkshetrasamiti-sketch.github.io/maladutsav2025/program/MPM_logo.png" alt="Malad Kshetra Samiti Logo" style="display:block; margin-left:auto; margin-right:auto; width:100px; height:auto;">
+  <h2>Calling List - Seemaji</h2>
+  <div class="top-note">
+    <p style="font-weight: bold; margin-bottom: 6px; font-size: 15px;">
+      कृपया निम्नलिखित सरल चरणों का पालन करें:
+    </p>
+    <ul style="padding-left: 18px; margin: 0; font-size: 12px;">
+      <li><strong>Name</strong> पर क्लिक करें — कॉल अपने आप डायल हो जाएगी</li>
+      <li><strong>SMS</strong> पर क्लिक करें — आपके मोबाइल से आमंत्रण संदेश जाएगा</li>
+      <li><strong>WhatsApp</strong> पर क्लिक करें — व्हाट्सएप खुलेगा और संदेश अपने आप पोस्ट हो जाएगा</li>
+      <li>आप समाजबंधु को <strong>Vivah Sahyog Samiti</strong> की जानकारी दें</li>
+    </ul>
+  </div>
+
+  <input id="searchInput" type="search" placeholder="🔍 Search by Name, Number, Registration, etc..." oninput="searchTable()" />
+
+  <!-- Compact dropdown toolbar (replace previous toolbar block) -->
+<div class="status-dropdown" id="statusDropdownWrap">
+  <button id="statusDropdownToggle" class="status-dropdown-toggle" 
+          aria-expanded="false" aria-controls="statusDropdownPanel" onclick="toggleStatusDropdown()">
+    Filters ▾
+    <span class="mini-total" id="miniTotal">0 / 0</span>
+  </button>
+
+  <div id="statusDropdownPanel" class="status-dropdown-panel" role="region" aria-hidden="true">
+    <div class="status-toolbar" id="statusToolbar" aria-hidden="false">
+      <div class="status-filter-btn" data-status-key="not called" id="btn-notcalled" onclick="toggleStatusFilterFromToolbar('not called')">
+        <span class="badge badge-notcalled">Not Called</span>
+        <span class="count" id="count-notcalled">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="whatsapp" id="btn-whatsapp" onclick="toggleStatusFilterFromToolbar('whatsapp')">
+        <span class="badge badge-wa">WhatsApp</span>
+        <span class="count" id="count-whatsapp">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="confirmed" id="btn-confirmed" onclick="toggleStatusFilterFromToolbar('confirmed')">
+        <span class="badge badge-confirmed">Confirmed</span>
+        <span class="count" id="count-confirmed">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="maybe" id="btn-maybe" onclick="toggleStatusFilterFromToolbar('maybe')">
+        <span class="badge badge-maybe">Maybe</span>
+        <span class="count" id="count-maybe">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="busy" id="btn-busy" onclick="toggleStatusFilterFromToolbar('busy')">
+        <span class="badge badge-busy">Phone Busy</span>
+        <span class="count" id="count-busy">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="not reachable" id="btn-nr" onclick="toggleStatusFilterFromToolbar('not reachable')">
+        <span class="badge badge-nr">Not Reachable</span>
+        <span class="count" id="count-nr">0</span>
+      </div>
+
+      <div class="status-filter-btn" data-status-key="not coming" id="btn-no" onclick="toggleStatusFilterFromToolbar('not coming')">
+        <span class="badge badge-no">Not Coming</span>
+        <span class="count" id="count-no">0</span>
+      </div>
+
+      <div class="legend" style="margin-left:auto;">
+        <strong>Total:</strong> <span id="totalVisible">0</span> visible / <span id="totalAll">0</span> total
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="table-wrapper">
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Assigned Person Name</th>
+          <th>WahtsApp Message</th>
+          <th>SMS</th>
+          <th>Call Status</th>
+          <th>Remarks</th>
+          <th>As of</th>
+          <th>Call Log Link</th>
+        </tr>
+      </thead>
+      <tbody>
+
+            <tr style="background-color: #fff7f7;">
+                <td>1</td>
+                <td><a href="tel:+919082147593" style="color:#007bff;" onclick="this.style.color='green'">ABHIJEET KABRA</a><br/><small style="color:#999">9082147593</small></td>
+                <td>
+            <a href="https://wa.me/919082147593?text=Dear+ABHIJEET+KABRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9082147593&entry.1475012068=ABHIJEET%20KABRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919082147593?body=Dear+ABHIJEET+KABRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9082147593&entry.1475012068=ABHIJEET%20KABRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>2</td>
+                <td><a href="tel:+919079030475" style="color:#007bff;" onclick="this.style.color='green'">AKHIL SONI</a><br/><small style="color:#999">9079030475</small></td>
+                <td>
+            <a href="https://wa.me/919079030475?text=Dear+AKHIL+SONI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9079030475&entry.1475012068=AKHIL%20SONI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919079030475?body=Dear+AKHIL+SONI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9079030475&entry.1475012068=AKHIL%20SONI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>3</td>
+                <td><a href="tel:+919867616960" style="color:#007bff;" onclick="this.style.color='green'">ANAND MAROO</a><br/><small style="color:#999">9867616960</small></td>
+                <td>
+            <a href="https://wa.me/919867616960?text=Dear+ANAND+MAROO+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9867616960&entry.1475012068=ANAND%20MAROO&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919867616960?body=Dear+ANAND+MAROO+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9867616960&entry.1475012068=ANAND%20MAROO&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>4</td>
+                <td><a href="tel:+919373982782" style="color:#007bff;" onclick="this.style.color='green'">ANJALI TOSHNIWAL</a><br/><small style="color:#999">9373982782</small></td>
+                <td>
+            <a href="https://wa.me/919373982782?text=Dear+ANJALI+TOSHNIWAL+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9373982782&entry.1475012068=ANJALI%20TOSHNIWAL&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919373982782?body=Dear+ANJALI+TOSHNIWAL+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9373982782&entry.1475012068=ANJALI%20TOSHNIWAL&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>5</td>
+                <td><a href="tel:+918500001456" style="color:#007bff;" onclick="this.style.color='green'">APOORWA JHAWAR</a><br/><small style="color:#999">8500001456</small></td>
+                <td>
+            <a href="https://wa.me/918500001456?text=Dear+APOORWA+JHAWAR+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=8500001456&entry.1475012068=APOORWA%20JHAWAR&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+918500001456?body=Dear+APOORWA+JHAWAR+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=8500001456&entry.1475012068=APOORWA%20JHAWAR&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>6</td>
+                <td><a href="tel:+919444019100" style="color:#007bff;" onclick="this.style.color='green'">ARUSHIBHURARIA </a><br/><small style="color:#999">9444019100</small></td>
+                <td>
+            <a href="https://wa.me/919444019100?text=Dear+ARUSHIBHURARIA++ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9444019100&entry.1475012068=ARUSHIBHURARIA%20&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919444019100?body=Dear+ARUSHIBHURARIA++ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9444019100&entry.1475012068=ARUSHIBHURARIA%20&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>7</td>
+                <td><a href="tel:+919783410707" style="color:#007bff;" onclick="this.style.color='green'">AVANI INANI</a><br/><small style="color:#999">9783410707</small></td>
+                <td>
+            <a href="https://wa.me/919783410707?text=Dear+AVANI+INANI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9783410707&entry.1475012068=AVANI%20INANI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919783410707?body=Dear+AVANI+INANI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9783410707&entry.1475012068=AVANI%20INANI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>8</td>
+                <td><a href="tel:+919423912987" style="color:#007bff;" onclick="this.style.color='green'">DHAVAL KARWA</a><br/><small style="color:#999">9423912987</small></td>
+                <td>
+            <a href="https://wa.me/919423912987?text=Dear+DHAVAL+KARWA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9423912987&entry.1475012068=DHAVAL%20KARWA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919423912987?body=Dear+DHAVAL+KARWA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9423912987&entry.1475012068=DHAVAL%20KARWA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>9</td>
+                <td><a href="tel:+919987169685" style="color:#007bff;" onclick="this.style.color='green'">GAURAV MOONDRA</a><br/><small style="color:#999">9987169685</small></td>
+                <td>
+            <a href="https://wa.me/919987169685?text=Dear+GAURAV+MOONDRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9987169685&entry.1475012068=GAURAV%20MOONDRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919987169685?body=Dear+GAURAV+MOONDRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9987169685&entry.1475012068=GAURAV%20MOONDRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>10</td>
+                <td><a href="tel:+919829041209" style="color:#007bff;" onclick="this.style.color='green'">HRITIK LADDHA</a><br/><small style="color:#999">9829041209</small></td>
+                <td>
+            <a href="https://wa.me/919829041209?text=Dear+HRITIK+LADDHA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9829041209&entry.1475012068=HRITIK%20LADDHA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919829041209?body=Dear+HRITIK+LADDHA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9829041209&entry.1475012068=HRITIK%20LADDHA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>11</td>
+                <td><a href="tel:+919426149618" style="color:#007bff;" onclick="this.style.color='green'">ISHANI TOTLA</a><br/><small style="color:#999">9426149618</small></td>
+                <td>
+            <a href="https://wa.me/919426149618?text=Dear+ISHANI+TOTLA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9426149618&entry.1475012068=ISHANI%20TOTLA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919426149618?body=Dear+ISHANI+TOTLA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9426149618&entry.1475012068=ISHANI%20TOTLA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>12</td>
+                <td><a href="tel:+919323890118" style="color:#007bff;" onclick="this.style.color='green'">JAYSHREE SOMANI</a><br/><small style="color:#999">9323890118</small></td>
+                <td>
+            <a href="https://wa.me/919323890118?text=Dear+JAYSHREE+SOMANI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9323890118&entry.1475012068=JAYSHREE%20SOMANI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919323890118?body=Dear+JAYSHREE+SOMANI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9323890118&entry.1475012068=JAYSHREE%20SOMANI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>13</td>
+                <td><a href="tel:+919979008309" style="color:#007bff;" onclick="this.style.color='green'">JYOTI SHAH</a><br/><small style="color:#999">9979008309</small></td>
+                <td>
+            <a href="https://wa.me/919979008309?text=Dear+JYOTI+SHAH+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9979008309&entry.1475012068=JYOTI%20SHAH&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919979008309?body=Dear+JYOTI+SHAH+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9979008309&entry.1475012068=JYOTI%20SHAH&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>14</td>
+                <td><a href="tel:+919820231507" style="color:#007bff;" onclick="this.style.color='green'">KALPANA DHOOT</a><br/><small style="color:#999">9820231507</small></td>
+                <td>
+            <a href="https://wa.me/919820231507?text=Dear+KALPANA+DHOOT+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9820231507&entry.1475012068=KALPANA%20DHOOT&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919820231507?body=Dear+KALPANA+DHOOT+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9820231507&entry.1475012068=KALPANA%20DHOOT&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>15</td>
+                <td><a href="tel:+919422180660" style="color:#007bff;" onclick="this.style.color='green'">KAPIL LAKHANI</a><br/><small style="color:#999">9422180660</small></td>
+                <td>
+            <a href="https://wa.me/919422180660?text=Dear+KAPIL+LAKHANI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9422180660&entry.1475012068=KAPIL%20LAKHANI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919422180660?body=Dear+KAPIL+LAKHANI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9422180660&entry.1475012068=KAPIL%20LAKHANI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>16</td>
+                <td><a href="tel:+918756333777" style="color:#007bff;" onclick="this.style.color='green'">KESHAV BAJAJ</a><br/><small style="color:#999">8756333777</small></td>
+                <td>
+            <a href="https://wa.me/918756333777?text=Dear+KESHAV+BAJAJ+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=8756333777&entry.1475012068=KESHAV%20BAJAJ&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+918756333777?body=Dear+KESHAV+BAJAJ+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=8756333777&entry.1475012068=KESHAV%20BAJAJ&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>17</td>
+                <td><a href="tel:+919920219100" style="color:#007bff;" onclick="this.style.color='green'">KRISHNA DUMMY JHAWAR</a><br/><small style="color:#999">9920219100</small></td>
+                <td>
+            <a href="https://wa.me/919920219100?text=Dear+KRISHNA+DUMMY+JHAWAR+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9920219100&entry.1475012068=KRISHNA%20DUMMY%20JHAWAR&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919920219100?body=Dear+KRISHNA+DUMMY+JHAWAR+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9920219100&entry.1475012068=KRISHNA%20DUMMY%20JHAWAR&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>18</td>
+                <td><a href="tel:+918879002921" style="color:#007bff;" onclick="this.style.color='green'">MADHUR SABOO</a><br/><small style="color:#999">8879002921</small></td>
+                <td>
+            <a href="https://wa.me/918879002921?text=Dear+MADHUR+SABOO+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=8879002921&entry.1475012068=MADHUR%20SABOO&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+918879002921?body=Dear+MADHUR+SABOO+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=8879002921&entry.1475012068=MADHUR%20SABOO&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>19</td>
+                <td><a href="tel:+919422002377" style="color:#007bff;" onclick="this.style.color='green'">MAHESH BANGAD</a><br/><small style="color:#999">9422002377</small></td>
+                <td>
+            <a href="https://wa.me/919422002377?text=Dear+MAHESH+BANGAD+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9422002377&entry.1475012068=MAHESH%20BANGAD&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919422002377?body=Dear+MAHESH+BANGAD+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9422002377&entry.1475012068=MAHESH%20BANGAD&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>20</td>
+                <td><a href="tel:+919324314237" style="color:#007bff;" onclick="this.style.color='green'">MANSI DAMANI</a><br/><small style="color:#999">9324314237</small></td>
+                <td>
+            <a href="https://wa.me/919324314237?text=Dear+MANSI+DAMANI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9324314237&entry.1475012068=MANSI%20DAMANI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919324314237?body=Dear+MANSI+DAMANI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9324314237&entry.1475012068=MANSI%20DAMANI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>21</td>
+                <td><a href="tel:+919588662709" style="color:#007bff;" onclick="this.style.color='green'">MAYURI SOMANI</a><br/><small style="color:#999">9588662709</small></td>
+                <td>
+            <a href="https://wa.me/919588662709?text=Dear+MAYURI+SOMANI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9588662709&entry.1475012068=MAYURI%20SOMANI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919588662709?body=Dear+MAYURI+SOMANI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9588662709&entry.1475012068=MAYURI%20SOMANI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>22</td>
+                <td><a href="tel:+917733815325" style="color:#007bff;" onclick="this.style.color='green'">MUKESH BAHETI</a><br/><small style="color:#999">7733815325</small></td>
+                <td>
+            <a href="https://wa.me/917733815325?text=Dear+MUKESH+BAHETI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=7733815325&entry.1475012068=MUKESH%20BAHETI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+917733815325?body=Dear+MUKESH+BAHETI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=7733815325&entry.1475012068=MUKESH%20BAHETI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>23</td>
+                <td><a href="tel:+916023672388" style="color:#007bff;" onclick="this.style.color='green'">NANDAN KABRA</a><br/><small style="color:#999">6023672388</small></td>
+                <td>
+            <a href="https://wa.me/916023672388?text=Dear+NANDAN+KABRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=6023672388&entry.1475012068=NANDAN%20KABRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+916023672388?body=Dear+NANDAN+KABRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=6023672388&entry.1475012068=NANDAN%20KABRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>24</td>
+                <td><a href="tel:+919414167705" style="color:#007bff;" onclick="this.style.color='green'">NIDHISH MUNDRA</a><br/><small style="color:#999">9414167705</small></td>
+                <td>
+            <a href="https://wa.me/919414167705?text=Dear+NIDHISH+MUNDRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9414167705&entry.1475012068=NIDHISH%20MUNDRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919414167705?body=Dear+NIDHISH+MUNDRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9414167705&entry.1475012068=NIDHISH%20MUNDRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>25</td>
+                <td><a href="tel:+918999112771" style="color:#007bff;" onclick="this.style.color='green'">OMKAR JAJU</a><br/><small style="color:#999">8999112771</small></td>
+                <td>
+            <a href="https://wa.me/918999112771?text=Dear+OMKAR+JAJU+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=8999112771&entry.1475012068=OMKAR%20JAJU&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+918999112771?body=Dear+OMKAR+JAJU+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=8999112771&entry.1475012068=OMKAR%20JAJU&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>26</td>
+                <td><a href="tel:+919448092777" style="color:#007bff;" onclick="this.style.color='green'">PRANEETA LAHOTI</a><br/><small style="color:#999">9448092777</small></td>
+                <td>
+            <a href="https://wa.me/919448092777?text=Dear+PRANEETA+LAHOTI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9448092777&entry.1475012068=PRANEETA%20LAHOTI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919448092777?body=Dear+PRANEETA+LAHOTI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9448092777&entry.1475012068=PRANEETA%20LAHOTI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>27</td>
+                <td><a href="tel:+919830564524" style="color:#007bff;" onclick="this.style.color='green'">PRATIK KABRA</a><br/><small style="color:#999">9830564524</small></td>
+                <td>
+            <a href="https://wa.me/919830564524?text=Dear+PRATIK+KABRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9830564524&entry.1475012068=PRATIK%20KABRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919830564524?body=Dear+PRATIK+KABRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9830564524&entry.1475012068=PRATIK%20KABRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>28</td>
+                <td><a href="tel:+919163519641" style="color:#007bff;" onclick="this.style.color='green'">PRATIK SARAOGI</a><br/><small style="color:#999">9163519641</small></td>
+                <td>
+            <a href="https://wa.me/919163519641?text=Dear+PRATIK+SARAOGI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9163519641&entry.1475012068=PRATIK%20SARAOGI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919163519641?body=Dear+PRATIK+SARAOGI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9163519641&entry.1475012068=PRATIK%20SARAOGI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>29</td>
+                <td><a href="tel:+919404844597" style="color:#007bff;" onclick="this.style.color='green'">PRATIKSHA SARDA</a><br/><small style="color:#999">9404844597</small></td>
+                <td>
+            <a href="https://wa.me/919404844597?text=Dear+PRATIKSHA+SARDA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9404844597&entry.1475012068=PRATIKSHA%20SARDA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919404844597?body=Dear+PRATIKSHA+SARDA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9404844597&entry.1475012068=PRATIKSHA%20SARDA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>30</td>
+                <td><a href="tel:+919374043659" style="color:#007bff;" onclick="this.style.color='green'">RAKSHIT SAMRIYA</a><br/><small style="color:#999">9374043659</small></td>
+                <td>
+            <a href="https://wa.me/919374043659?text=Dear+RAKSHIT+SAMRIYA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9374043659&entry.1475012068=RAKSHIT%20SAMRIYA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919374043659?body=Dear+RAKSHIT+SAMRIYA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9374043659&entry.1475012068=RAKSHIT%20SAMRIYA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>31</td>
+                <td><a href="tel:+919004969096" style="color:#007bff;" onclick="this.style.color='green'">RASHMI BIRLA</a><br/><small style="color:#999">9004969096</small></td>
+                <td>
+            <a href="https://wa.me/919004969096?text=Dear+RASHMI+BIRLA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9004969096&entry.1475012068=RASHMI%20BIRLA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919004969096?body=Dear+RASHMI+BIRLA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9004969096&entry.1475012068=RASHMI%20BIRLA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>32</td>
+                <td><a href="tel:+919024507221" style="color:#007bff;" onclick="this.style.color='green'">RISHTEY MATRIMONY</a><br/><small style="color:#999">9024507221</small></td>
+                <td>
+            <a href="https://wa.me/919024507221?text=Dear+RISHTEY+MATRIMONY+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9024507221&entry.1475012068=RISHTEY%20MATRIMONY&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919024507221?body=Dear+RISHTEY+MATRIMONY+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9024507221&entry.1475012068=RISHTEY%20MATRIMONY&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>33</td>
+                <td><a href="tel:+919769681202" style="color:#007bff;" onclick="this.style.color='green'">ROHAN </a><br/><small style="color:#999">9769681202</small></td>
+                <td>
+            <a href="https://wa.me/919769681202?text=Dear+ROHAN++ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9769681202&entry.1475012068=ROHAN%20&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919769681202?body=Dear+ROHAN++ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9769681202&entry.1475012068=ROHAN%20&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>34</td>
+                <td><a href="tel:+919827190024" style="color:#007bff;" onclick="this.style.color='green'">RUCHI SONI</a><br/><small style="color:#999">9827190024</small></td>
+                <td>
+            <a href="https://wa.me/919827190024?text=Dear+RUCHI+SONI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9827190024&entry.1475012068=RUCHI%20SONI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919827190024?body=Dear+RUCHI+SONI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9827190024&entry.1475012068=RUCHI%20SONI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>35</td>
+                <td><a href="tel:+919987264250" style="color:#007bff;" onclick="this.style.color='green'">SACHIN GILRA</a><br/><small style="color:#999">9987264250</small></td>
+                <td>
+            <a href="https://wa.me/919987264250?text=Dear+SACHIN+GILRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9987264250&entry.1475012068=SACHIN%20GILRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919987264250?body=Dear+SACHIN+GILRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9987264250&entry.1475012068=SACHIN%20GILRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>36</td>
+                <td><a href="tel:+919177479993" style="color:#007bff;" onclick="this.style.color='green'">SAGAR MUNDADA</a><br/><small style="color:#999">9177479993</small></td>
+                <td>
+            <a href="https://wa.me/919177479993?text=Dear+SAGAR+MUNDADA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9177479993&entry.1475012068=SAGAR%20MUNDADA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919177479993?body=Dear+SAGAR+MUNDADA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9177479993&entry.1475012068=SAGAR%20MUNDADA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>37</td>
+                <td><a href="tel:+917843021244" style="color:#007bff;" onclick="this.style.color='green'">SANKET KABRA</a><br/><small style="color:#999">7843021244</small></td>
+                <td>
+            <a href="https://wa.me/917843021244?text=Dear+SANKET+KABRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=7843021244&entry.1475012068=SANKET%20KABRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+917843021244?body=Dear+SANKET+KABRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=7843021244&entry.1475012068=SANKET%20KABRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>38</td>
+                <td><a href="tel:+919827074808" style="color:#007bff;" onclick="this.style.color='green'">SATVIK JAWANDHIA</a><br/><small style="color:#999">9827074808</small></td>
+                <td>
+            <a href="https://wa.me/919827074808?text=Dear+SATVIK+JAWANDHIA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9827074808&entry.1475012068=SATVIK%20JAWANDHIA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919827074808?body=Dear+SATVIK+JAWANDHIA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9827074808&entry.1475012068=SATVIK%20JAWANDHIA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>39</td>
+                <td><a href="tel:+919422755219" style="color:#007bff;" onclick="this.style.color='green'">SHUBHI BHANGADIYA</a><br/><small style="color:#999">9422755219</small></td>
+                <td>
+            <a href="https://wa.me/919422755219?text=Dear+SHUBHI+BHANGADIYA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9422755219&entry.1475012068=SHUBHI%20BHANGADIYA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919422755219?body=Dear+SHUBHI+BHANGADIYA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9422755219&entry.1475012068=SHUBHI%20BHANGADIYA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>40</td>
+                <td><a href="tel:+919422457531" style="color:#007bff;" onclick="this.style.color='green'">SUNAYANA KABRA</a><br/><small style="color:#999">9422457531</small></td>
+                <td>
+            <a href="https://wa.me/919422457531?text=Dear+SUNAYANA+KABRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9422457531&entry.1475012068=SUNAYANA%20KABRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919422457531?body=Dear+SUNAYANA+KABRA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9422457531&entry.1475012068=SUNAYANA%20KABRA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>41</td>
+                <td><a href="tel:+919849185198" style="color:#007bff;" onclick="this.style.color='green'">SURABHI TOSHNIWAL</a><br/><small style="color:#999">9849185198</small></td>
+                <td>
+            <a href="https://wa.me/919849185198?text=Dear+SURABHI+TOSHNIWAL+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9849185198&entry.1475012068=SURABHI%20TOSHNIWAL&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919849185198?body=Dear+SURABHI+TOSHNIWAL+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9849185198&entry.1475012068=SURABHI%20TOSHNIWAL&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>42</td>
+                <td><a href="tel:+917620049535" style="color:#007bff;" onclick="this.style.color='green'">TUSHAR DAGA</a><br/><small style="color:#999">7620049535</small></td>
+                <td>
+            <a href="https://wa.me/917620049535?text=Dear+TUSHAR+DAGA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=7620049535&entry.1475012068=TUSHAR%20DAGA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+917620049535?body=Dear+TUSHAR+DAGA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=7620049535&entry.1475012068=TUSHAR%20DAGA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>43</td>
+                <td><a href="tel:+918983444636" style="color:#007bff;" onclick="this.style.color='green'">VENKATESH ZAWAR</a><br/><small style="color:#999">8983444636</small></td>
+                <td>
+            <a href="https://wa.me/918983444636?text=Dear+VENKATESH+ZAWAR+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=8983444636&entry.1475012068=VENKATESH%20ZAWAR&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+918983444636?body=Dear+VENKATESH+ZAWAR+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=8983444636&entry.1475012068=VENKATESH%20ZAWAR&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>44</td>
+                <td><a href="tel:+919829046676" style="color:#007bff;" onclick="this.style.color='green'">VIVEK SONI</a><br/><small style="color:#999">9829046676</small></td>
+                <td>
+            <a href="https://wa.me/919829046676?text=Dear+VIVEK+SONI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9829046676&entry.1475012068=VIVEK%20SONI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919829046676?body=Dear+VIVEK+SONI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9829046676&entry.1475012068=VIVEK%20SONI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>45</td>
+                <td><a href="tel:+917507012591" style="color:#007bff;" onclick="this.style.color='green'">YASH SIKCHI</a><br/><small style="color:#999">7507012591</small></td>
+                <td>
+            <a href="https://wa.me/917507012591?text=Dear+YASH+SIKCHI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=7507012591&entry.1475012068=YASH%20SIKCHI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+917507012591?body=Dear+YASH+SIKCHI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=7507012591&entry.1475012068=YASH%20SIKCHI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>46</td>
+                <td><a href="tel:+919545939917" style="color:#007bff;" onclick="this.style.color='green'">YOGESH MANTRI</a><br/><small style="color:#999">9545939917</small></td>
+                <td>
+            <a href="https://wa.me/919545939917?text=Dear+YOGESH+MANTRI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9545939917&entry.1475012068=YOGESH%20MANTRI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919545939917?body=Dear+YOGESH+MANTRI+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9545939917&entry.1475012068=YOGESH%20MANTRI&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+            <tr style="background-color: #fff7f7;">
+                <td>47</td>
+                <td><a href="tel:+919963601730" style="color:#007bff;" onclick="this.style.color='green'">YUGANDER LOYA</a><br/><small style="color:#999">9963601730</small></td>
+                <td>
+            <a href="https://wa.me/919963601730?text=Dear+YUGANDER+LOYA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F"
+            target="_blank"
+            style="color:#25D366;"
+            onclick="this.style.opacity='0.6'">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="22" height="22" viewBox="0 0 32 32" 
+                    fill="#25D366" style="vertical-align:middle;">
+                    <path d="M16 .5C7.6.5.8 7.3.8 15.7c0 3 1 5.9 2.7 8.3L.5 31.5l8-2.9c2.3 1.3 5 2 7.7 2 8.4 0 15.2-6.8 15.2-15.2S24.4.5 16 .5zm0 27.5c-2.4 0-4.7-.7-6.7-2l-.5-.3-4.7 1.7 1.6-4.9-.3-.5c-1.5-2.1-2.3-4.5-2.3-7.1 0-6.7 5.3-12.2 12.2-12.2 6.7 0 12.2 5.5 12.2 12.2 0 6.9-5.5 12.1-12.2 12.1z"/>
+                    <path d="M23.2 19.3c-.3-.1-1.7-.8-2-1-.3-.1-.6-.1-.9.1-.3.3-1 .9-1.3 1.1-.2.1-.5.2-.8.1-.3-.1-1.4-.5-2.6-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.6.2-.8.2-.2.3-.3.4-.5.1-.2.1-.3.2-.5.1-.1.1-.3 0-.5-.1-.1-.9-2.1-1.2-2.9-.3-.8-.7-.7-1-.7h-.9c-.3 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.4 4.9 4.8 2.9 1.4 2.9.9 3.4.9s1.7-.5 1.9-1c.2-.5.2-.9.1-1z"/>
+                </svg>
+            </a>
+              &nbsp;|&nbsp;  <a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=WhatsApp&entry.1573933320=Seemaji&entry.1585817478=9963601730&entry.1475012068=YUGANDER%20LOYA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log</a> </td>
+                <td><a href="sms:+919963601730?body=Dear+YUGANDER+LOYA+ji%2C%0A%0A%F0%9F%8C%BB+Complete+Your+Profile+%E2%80%93+MPM+Vivah+Sahyog+Samiti+%F0%9F%8C%BB%0A%0AThank+you+for+registering+on+our+website+%F0%9F%99%8F%F0%9F%8F%BB+We+request+you+to+please+complete+your+profile+at+the+earliest+so+that+you+can+%3A%0A%0A%E2%9C%A8+View+more+suitable+profiles%0A%F0%9F%94%8D+Get+better+match+suggestions%0A%F0%9F%91%80+Increase+visibility+to+other+members%0A%F0%9F%8E%8A+Participate+in+our+events%0A%0APlease+log+in+and+update+your+profile+here+%3A%0A%F0%9F%8C%90+https%3A%2F%2Fvivah.mumbaimaheshwari.com%2F%0A%0A%F0%9F%92%A1+New+search+parameters+have+also+been+added+to+help+you+find+a+suitable+match.%0A%0AFor+any+queries+you+may+please+reach+out+to+Sandeep+ji+Periwal+on+%2B91+98199+88384+%E2%98%8E%EF%B8%8F" target="_blank" onclick="this.style.color='green'">SMS</a></td>
+                <td><span class="badge badge-notcalled">Not Called</span></td>
+                <td></td>
+                <td></td>
+                <td><a onclick="this.style.color='green'" href="https://docs.google.com/forms/d/e/1FAIpQLSddgJb-7qSWjw4vIjB-6rAddcIrCSTreRmbnNNAst2I_bd8dA/viewform?usp=pp_url&entry.752647600=Called&entry.1573933320=Seemaji&entry.1585817478=9963601730&entry.1475012068=YUGANDER%20LOYA&entry.410440017=Vivah Sahyog Samiti" target="_blank">Log Call</a></td>
+            </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div id="noResults" class="no-results">No matching results found</div>
+
+  <!-- Floating Action Bar -->
+  <div class="fab-bar" aria-hidden="false" id="floatingBar">
+    <button class="fab fab-top" title="Go to Top" onclick="goToTop()">↑</button>
+    <button id="filterNotCalledBtn" class="fab fab-filter" title="Only show Not Called" onclick="toggleStatusFilter('not called')">🔴</button>
+    <button id="filterWhatsAppBtn" class="fab fab-filter" title="Only show WhatsApp" onclick="toggleStatusFilter('whatsapp')">💬</button>
+    <button class="fab fab-filter" title="Clear search & highlights" onclick="clearHighlightsAndSearch()">✖</button>
+  </div>
+
+  <!-- Link to external script (relative path) -->
+  <!--<script src="{}"></script>-->
+</body>
+</html>
